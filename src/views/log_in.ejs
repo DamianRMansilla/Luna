@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head")%>
+
+<%- include("./partials/header")%>
+<body>
+
+    <div class="contenedor_register">
+
+        <h2 class="sessioninit">¡Hola! Ingresa tu usuario o correo electrónico</h2>
+        <main class="main_login">
+            <form class="login" action="" method="POST">
+                <div class="user">
+                    <label for="username">Correo electrónico o usuario</label>
+                    <input type="text" class="fill_text" id="username" name="username" required>
+                </div>    
+                <div class="pass">
+                    <label for="contraseña">Contraseña</label>
+                    <input type="text" class="fill_text" id="contraseña" name="contraseña" required>
+                </div>
+                <div class="fillin">
+                    <input type="checkbox" id="remember-me" name="remember-me">
+                    <label for="remember-me" class="remember-me">Recordar mi usuario</label>
+                </div>
+                <div class="buttons">
+                    <button type="submit" class="button1">Continuar</button>
+                    <button type="reset" class="button2">Borrar</button>
+                </div>
+
+            </form>
+            <div class="line">
+                <p class="o">---------------------- o ----------------------</p>
+            </div>
+            <form class="google" action="" method="POST">
+                <button type="submit" class="log_in_google">Continuar con Google</button>
+            </form>
+
+            <div class="registrate">
+                <p>¿Aun no tienes cuenta?</p>
+                <a href="./register"><button type="submit" class="button3">Regístrate</button></a>
+            </div>
+        </main>
+    </div>
+
+<%- include("./partials/footer")%>
+
+</body>
+</html>

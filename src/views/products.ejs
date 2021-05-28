@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head")%>
+
+<%- include("./partials/header")%>
+<body>
+
+    <main>
+        <div class="product_description">
+            <div>
+                <img class="principal" src="./img/Foto_producto.png" alt="">
+            </div>
+            <div>
+                <div class="description">
+                    <h2 class="product_name">Sweater Canelón</h2>
+                    <div class="icons">
+                        <i class="far fa-heart"></i>
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                </div>
+                <p class="price">$2.220,00</p>
+                <p class="description_product">Tejido de punto. Basico redondo con terminaciones en canalé.</p>
+                <p class="colores">COLORES</p>
+                <div class="square_colors">
+                    <div class="black_square"></div>
+                    <div class="gray_square"></div>
+                    <div class="pink_square"></div>
+                    <div class="red_square"></div>
+                    <div class="white_square"></div>
+                </div>
+                <form class="customize" action="" method="GET">
+                    <div class="talle_product">    
+                        <label for="talle">TALLE</label>
+                        <select class="talle" name="talle" id="talle">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                    <div class="cantidad_product">
+                        <label for="cantidad">CANTIDAD</label>
+                        <select class="cantidad" name="cantidad" id="cantidad">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                        </select>
+                    </div>
+                        <button class="agregar_carrito">AGREGAR AL CARRITO</button>
+                </form>
+
+            </div>
+        </div>
+    </main>
+
+<%- include("./partials/footer")%>
+
+</body>
+</html>

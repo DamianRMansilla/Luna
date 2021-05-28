@@ -1,0 +1,451 @@
+*{
+    margin: 0;
+    width: 100%;
+}
+
+header{
+    display: flex;
+    border-bottom: 2px solid grey;
+}
+
+.logo{
+    height: 14vh;
+    width: 25%;
+    margin-left: 7%;
+}
+
+.logo img{
+    height: 100%;
+    width: auto;
+}
+
+.no-logo{
+    display: flex;
+    flex-direction: column;
+}
+
+.busqueda{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2vh;
+    position: relative;
+    width: 100%;
+}
+
+.busqueda input{
+    position: relative;
+    border-radius: 15px 0 0 15px;
+    border: none;
+    background-color: #FFCFCF;
+    line-height: 4vh;
+    width: 25%;
+}
+
+.busqueda button{
+    position: relative;
+    right: 10px;
+    border-radius: 0 15px 15px 0;
+    border: none;
+    background-color: #FFCFCF;
+    line-height: 4vh;
+    width: 5%;
+}
+.big-big-menu{
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+}
+
+.big-menu{
+    display: flex;
+}
+
+.menu{
+    display: flex;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+}
+
+.menu li{
+    margin: 0 2vw 0.5vh 2vw;
+    display: flex;
+    align-items: flex-end;
+}
+
+.menu li a{
+    text-decoration: none;
+    color: black;
+}
+
+.ingreso li{
+    font-family: 'Lato', sans-serif;
+    list-style-type: none;
+    font-size: 12px;
+    box-sizing: border-box;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 2vw;
+    align-items: flex-end;
+    line-height: 23px;
+}
+
+.ingreso i{
+    width: 15px;
+    font-size: 10px;
+}
+
+.ingreso li a{
+    text-decoration: none;
+    color: rgb(139, 134, 134);
+}
+
+/*---------------- Configuracion footer ----------------------- */
+
+.footer{
+    background-color: #FF8C90;
+    margin-top: 20px;
+}
+
+.direccion{
+    text-align: center;
+    padding: 10px 0 5px 0;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+}
+
+.horario{
+    text-align: center;
+    padding: 5px 0 10px 0;
+    font-family: 'Lato', sans-serif;
+}
+
+
+/*---------------- Configuracion login ----------------------- */
+
+.contenedor_register{
+    height: 444px;
+}
+
+.sessioninit{
+    text-align: center;
+    margin-top: 5vh;
+    margin-bottom: 4vh;
+}
+
+.main_login{
+    border: rgb(196, 184, 184) 1px solid;
+    border-radius: 5px;
+    margin: 1vh auto;
+    width: 30%;
+}
+.login{
+    width: 95%;
+    margin-top: 3vh;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.pass{
+    margin-top: 2vh;
+    text-align: left;
+}
+
+.user{
+    text-align: left;
+}
+
+.fill_text{
+    line-height: 3.5vh;
+    background-color: #FFCFCF;
+    border-radius: 5px;
+    border: none
+}
+
+.fillin{
+    display: flex;
+    align-items: center;
+    margin-top: 2vh;
+    text-align: center;
+    justify-content: center;
+}
+
+.fillin input{
+    width: 8%;
+    text-align: right;
+}
+
+.remember-me{
+    width: 45%;
+}
+
+.buttons{
+    display: flex;
+    margin: 2vh auto 4vh auto;
+}
+
+.button1{
+    margin-right: 1vw;
+    line-height: 3.5vh;
+    border-radius: 5px;
+    border: #cf9393 1px solid;
+    background-color: #FFCFCF;
+}
+
+.button2{
+    margin-left: 1vw;
+    line-height: 3.5vh;
+    border-radius: 5px;
+    border: #cf9393 1px solid;
+    background-color: #FFCFCF;
+}
+
+.line{
+    display: flex;
+}
+
+.o{
+    text-align: center;
+}
+
+.google{
+    width: 70%;
+    text-align: center;
+    margin: 3vh auto;
+}
+
+.log_in_google{
+    line-height: 3.5vh;
+    background-color: white;
+    border: black 1px solid;
+}
+
+.registrate{
+    text-align: center;
+    width: 70%;
+    margin: 4vh auto 4vh auto;
+}
+
+.button3{
+    line-height: 3.5vh;
+    border-radius: 5px;
+    border: #cf9393 1px solid;
+    background-color: #FFCFCF;
+}
+
+.button3{
+    text-decoration: none;
+    color: black;
+}
+
+/*---------------- Configuracion register ----------------------- */
+.register-title{
+    text-align: center;
+    margin: 4vh 0;
+}
+
+.register{
+    width: 30%;
+    margin: 2vh auto 5vh auto;
+    padding: 0 3%;
+    border: rgb(196, 184, 184) 1px solid;
+    border-radius: 5px;
+}
+
+.register div{
+    margin-top: 2vh;
+}
+.register div input{
+    line-height: 3.5vh;
+    background-color: #FFCFCF;
+    border-radius: 5px;
+    border: none;
+}
+
+.name{
+    width: 48%;
+    margin-right: 1vw;
+}
+
+.last_name{
+    width: 48%;
+    margin-left: 1vw;
+}
+
+.name_last{
+    display: flex;
+}
+
+.terminos{
+    margin-top: 2vh;
+    text-align: justify;
+}
+
+.condiciones{
+    text-decoration: none;
+    color: rgb(9, 9, 78);
+    font-weight: bold;
+}
+
+.privacidad{
+    text-decoration: none;
+    color: rgb(9, 9, 78);
+    font-weight: bold;
+}
+.robot{
+    display: flex;
+    margin-top: 3vh;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.robot input{
+    width: 8%;
+    text-align: right;
+}
+
+.robot label{
+    width: 33%;
+    margin-right: 10%;
+}
+
+/*---------------- Configuracion product ----------------------- */
+
+.principal{
+    width: 90%;
+    margin: 5vh 2vw;
+}
+
+.product_description{
+    display: flex;
+}
+
+.description{
+    display: flex;
+    margin: 5vh 0;
+}
+
+.product_name{
+    width: 90%;
+    margin-top: 3vh;
+    font-size: 30px;
+    font-family: 'Lato', sans-serif;
+}
+
+.icons{
+    display: flex;
+    width: 10%;
+    margin-top: 3vh;
+}
+
+.price{
+    font-size: 1.5em;
+    font-family: 'Lato', sans-serif;
+}
+
+.description_product{
+    margin-top: 16vh;
+    color: rgb(107, 104, 104);
+    font-size: 20px;
+    font-family: 'Lato', sans-serif;
+}
+
+.colores{
+    margin-top: 10vh;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+}
+
+.square_colors{
+    display: flex;
+    margin: 2vh 0 0 2vw;
+}
+.black_square {
+    height: 25px;
+    width: 25px;
+    background-color: black;
+    border: 1px solid black;
+    margin-right: 1vw;
+}
+
+.gray_square {
+    height: 25px;
+    width: 25px;
+    background-color: gray;
+    border: 1px solid black;
+    margin-right: 1vw;
+}
+
+.pink_square {
+    height: 25px;
+    width: 25px;
+    background-color: pink;
+    border: 1px solid black;
+    margin-right: 1vw;
+}
+
+.red_square {
+    height: 25px;
+    width: 25px;
+    background-color: red;
+    border: 1px solid black;
+    margin-right: 1vw;
+}
+
+.white_square {
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.customize{
+    margin-top: 8vh;
+}
+
+.talle{
+    margin-top: 2vh;
+    border: none;
+    border-bottom: solid 1px black;
+    width: 50%;
+}
+
+.talle_product{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Lato', sans-serif;
+}
+
+.talle{
+    margin-top: 2vh;
+    border: none;
+    border-bottom: solid 1px black;
+    width: 50%;
+}
+
+.cantidad_product{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3vh;
+    font-family: 'Lato', sans-serif;
+}
+
+.cantidad{
+    margin-top: 2vh;
+    border: none;
+    border-bottom: solid 1px black;
+    width: 50%;
+}
+
+.agregar_carrito{
+    line-height: 6vh;
+    border-radius: 5px;
+    border: #cf9393 1px solid;
+    background-color: #EB5459;
+    margin-top: 15vh;
+    color: white;
+    width: 50%;
+    font-family: 'Lato', sans-serif;
+}
