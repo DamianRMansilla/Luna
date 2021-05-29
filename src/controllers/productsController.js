@@ -13,6 +13,12 @@ let productsController = {
     new_in: (req, res) => {
         res.render(path.resolve(__dirname, "../views/new_in"))
     },
+    new_product: (req, res) => {
+        res.render(path.resolve(__dirname, "../views/new_product"))
+    },
+    edit_product: (req, res) => {
+        res.render(path.resolve(__dirname, "../views/edit_product"))
+    },
 };
 
 

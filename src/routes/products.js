@@ -15,4 +15,8 @@ router.get("/tshirt", controladorProductos.tshirt)
 
 router.get("/new_in", controladorProductos.new_in)
 
+router.get("/new_product", controladorProductos.new_product)
+
+router.get("/edit_product", controladorProductos.edit_product)
+
 module.exports = router

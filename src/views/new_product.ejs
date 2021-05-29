@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head")%>
+
+<%- include("./partials/header")%>
+<body>
+    <h2 class="new_product_title">Creacion de productos</h2>
+    <form action="" class="new_product" method="POST">
+        <div class="item">
+            <label for="file"><h4>Seleccione la imagen del producto</h4></label>
+            <input type="file"  class="choose_file" id="file" accept=".jgp, .png">
+        </div>
+        <div class="item">
+            <label for="name_product">Nombre del producto</label>
+            <input type="text" class="input" id="name_product" name="name_product" required>
+        </div>
+        <div class="item">
+            <label for="price_product">Precio</label>
+            <input type="text" class="input" id="price_product" name="price_product" required>
+        </div>
+        <div class="item">
+            <label for="descript_product">Descripcion producto</label>
+            <input type="text" class="input" id="descript_product" name="descript_product" required>
+        </div>
+        <!--<div class="item">
+            <label for="colores">Colores</label>
+            <input type="radio"><input type="color" value="#000000">
+            <input type="color" value="#808080">
+            <input type="color" value="#ffc0cb">
+            <input type="color" value="#ff0000">
+            <input type="color" value="#ffffff">
+        </div>-->
+        <div class="item">
+            <label>Cantidades por talle:</label><br>
+            <label for="36">36</label>
+            <input type="number" class="talle_jean" id="36">
+            <label for="38">38</label>
+            <input type="number" class="talle_jean" id="38">
+            <label for="40">40</label>
+            <input type="number" class="talle_jean" id="40">
+            <label for="42">42</label>
+            <input type="number" class="talle_jean" id="42">
+            <label for="44">44</label>
+            <input type="number" class="talle_jean" id="44">
+            <label for="46">46</label>
+            <input type="number" class="talle_jean" id="46">
+        </div>
+        <div class="button_np">
+            <button type="submit" class="button_new_product">Agregar el producto</button>
+        </div>
+    </form>
+
+<%- include("./partials/footer")%>
+
+</body>
+</html>

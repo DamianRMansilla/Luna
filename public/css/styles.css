@@ -3,6 +3,7 @@
     width: 100%;
 }
 
+/*----------------------------------- Configuracion header ------------------------------------*/
 header{
     display: flex;
     border-bottom: 2px solid grey;
@@ -448,4 +449,56 @@ header{
     color: white;
     width: 50%;
     font-family: 'Lato', sans-serif;
+}
+
+/*---------------- Configuracion New Product ----------------------- */
+
+.new_product_title{
+    text-align: center;
+    margin: 5vh 0;
+}
+
+.new_product{
+    width: 30%;
+    margin: 1vh auto;
+    padding: 15px;
+    border: rgb(196, 184, 184) 1px solid;
+    border-radius: 5px;
+}
+
+.item{
+    margin-top: 2vh;
+}
+
+.input{
+    line-height: 3.5vh;
+    background-color: #FFCFCF;
+    border-radius: 5px;
+    border: none;
+}
+
+.talle_jean{
+    margin-top: 1vh;
+    line-height: 3.5vh;
+    width: 5vh;
+    background-color: #FFCFCF;
+    border-radius: 5px;
+    border: none;
+}
+
+.button_np{
+    text-align: center;
+}
+
+.button_new_product{
+    line-height: 3.5vh;
+    border-radius: 5px;
+    border: #cf9393 1px solid;
+    background-color: #FFCFCF;
+    width: 50%;
+    margin: 5vh auto 2vh auto;
+}
+
+.choose_file{
+    margin-top: 1vh;
 }
