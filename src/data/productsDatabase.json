@@ -1,0 +1,51 @@
+[
+    {
+        "id": 1,
+        "Nombre": "Pimienta",
+        "Precio": "4500",
+        "Descripcion": "Negro y manchas blancas",
+        "Talle_36": "1",
+        "Talle_38": "1",
+        "Talle_40": "1",
+        "Talle_42": "",
+        "Talle_44": "",
+        "Talle_46": ""
+    },
+    {
+        "id": 2,
+        "Nombre": "Sara Bravo",
+        "Precio": "2300",
+        "Descripcion": "sweater choto",
+        "Talle_36": "1",
+        "Talle_38": "",
+        "Talle_40": "",
+        "Talle_42": "",
+        "Talle_44": "",
+        "Talle_46": ""
+    },
+    {
+        "id": 3,
+        "Tipo_de_producto": "Sweater",
+        "Nombre": "Update",
+        "Precio": "1200",
+        "Descripcion": "saldra",
+        "Talle_36": "",
+        "Talle_38": "",
+        "Talle_40": "",
+        "Talle_42": "",
+        "Talle_44": "1",
+        "Talle_46": ""
+    },
+    {
+        "id": 4,
+        "Nombre": "dada",
+        "Precio": "1500",
+        "Descripcion": "adad",
+        "Talle_36": "",
+        "Talle_38": "1",
+        "Talle_40": "",
+        "Talle_42": "",
+        "Talle_44": "",
+        "Talle_46": ""
+    }
+]

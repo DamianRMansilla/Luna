@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include("./partials/head")%>
+<%- include("../partials/head")%>
 
-<%- include("./partials/header")%>
+<%- include("../partials/header")%>
 <body>
 
     <main>
         <div class="product_description">
             <div>
-                <img class="principal" src="./img/Foto_producto.png" alt="">
+                <img class="principal" src="/img/Foto_producto.png" alt="">
             </div>
             <div>
                 <div class="description">
-                    <h2 class="product_name">Sweater Canelón</h2>
+                   
+                    <h2 class="product_name">Sweater <%= product.Nombre %> </h2> 
+                    <form class="form_delete" action="/products/delete/<%=product.id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="delete"><i class="fas fa-trash-alt"></i></button>
+                    </form>
                     <div class="icons">
                         <i class="far fa-heart"></i>
                         <i class="fas fa-share-alt"></i>
                     </div>
                 </div>
-                <p class="price">$2.220,00</p>
-                <p class="description_product">Tejido de punto. Basico redondo con terminaciones en canalé.</p>
+                <p class="price">$<%= product.Precio %></p>
+                <p class="description_product"><%= product.Descricion %></p>
                 <p class="colores">COLORES</p>
                 <div class="square_colors">
                     <div class="black_square"></div>
@@ -57,7 +61,7 @@
         </div>
     </main>
 
-<%- include("./partials/footer")%>
+<%- include("../partials/footer")%>
 
 </body>
 </html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head")%>
+
+<%- include("../partials/header")%>
+<body>
+
+    <h2 class="new_product_title">Edición de producto <%= product.Nombre %> </h2>
+    <form action="/products/edit/<%= product.id %>?_method=PUT" class="new_product" method="POST">
+        <div class="item">
+            <label for="file"><h4>Seleccione la imagen del producto</h4></label>
+            <input type="file"  class="choose_file" id="file" name="file" accept=".jgp, .png">
+        </div>
+        <div class="item">
+            <label for="name_product">Nombre del producto</label>
+            <input type="text" class="input" id="name_product" name="name_product" value="<%= product.Nombre%>" >
+        </div>
+        <div class="item">
+            <label for="price_product">Precio</label>
+            <input type="text" class="input" id="price_product" name="price_product" value="<%= product.Precio %>">
+        </div>
+        <div class="item">
+            <label for="descript_product">Descripcion producto</label>
+            <input type="text" class="input" id="descript_product" name="descript_product" value="<%= product.Descripcion %>">
+        </div>
+        <div class="item">
+            <label>Cantidades por talle:</label><br>
+            <label for="36">36</label>
+            <input type="number" class="talle_jean" name="talle_jean_36" id="36" value="<%= product.Talle_36 %>">
+            <label for="38">38</label>
+            <input type="number" class="talle_jean" name="talle_jean_38" id="38" value="<%= product.Talle_38 %>">
+            <label for="40">40</label>
+            <input type="number" class="talle_jean" name="talle_jean_40" id="40" value="<%= product.Talle_40 %>">
+            <label for="42">42</label>
+            <input type="number" class="talle_jean" name="talle_jean_42" id="42" value="<%= product.Talle_42 %>">
+            <label for="44">44</label>
+            <input type="number" class="talle_jean" name="talle_jean_44" id="44" value="<%= product.Talle_44 %>">
+            <label for="46">46</label>
+            <input type="number" class="talle_jean" name="talle_jean_46" id="46" value="<%= product.Talle_46 %>">
+        </div>
+        <div class="button_np">
+            <button type="submit" class="button_new_product">Guardar los cambios</button>
+        </div>
+    </form>
+    
+<%- include("../partials/footer")%>
+
+</body>
+</html>

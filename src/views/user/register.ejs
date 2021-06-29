@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include("./partials/head")%>
+<%- include("../partials/head")%>
 
-<%- include("./partials/header")%>
+<%- include("../partials/header")%>
 <body>
 
     <main>
         <h2 class="register-title">Crea tu cuenta</h2>
 
-        <form class="register" action="" method="POST">
+        <form class="register" action="/user/register" method="POST">
             <div class="name_last">
                 <div class="name">
                     <label for="name">Nombre</label>
@@ -47,7 +47,7 @@
         </form>
     </main>
 
-<%- include("./partials/footer")%>
+<%- include("../partials/footer")%>
 
 </body>
 </html>

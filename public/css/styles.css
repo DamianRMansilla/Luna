@@ -451,6 +451,21 @@ header{
     font-family: 'Lato', sans-serif;
 }
 
+.form_delete{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    }
+
+.delete{
+    background-color: white;
+    border: none;
+    text-align: left;
+    margin: auto;
+    font-size: 30px;
+    color: red;
+}
+
 /*---------------- Configuracion New Product ----------------------- */
 
 .new_product_title{
@@ -501,4 +516,23 @@ header{
 
 .choose_file{
     margin-top: 1vh;
+}
+
+.tipo_de_producto{
+    margin-top: 2vh;
+}
+
+.unidad{
+    display: flex;
+    align-items: center;
+    margin-top: 1vh;
+}
+
+.unidad input{
+    width: 15px;
+    margin-left: 1vw;
+}
+
+.unidad label{
+    margin-left: 1vw;
 }
