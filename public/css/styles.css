@@ -312,6 +312,13 @@ header{
     margin-right: 10%;
 }
 
+.errores{
+    color: rgb(241, 105, 105);
+    font-size: 14px;
+    font-weight:lighter;
+    margin-top: 1vh;
+}
+
 /*---------------- Configuracion product ----------------------- */
 
 .principal{

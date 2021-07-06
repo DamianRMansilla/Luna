@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path")
 const controladorProductos = require("../controllers/productsController.js")
-
+const multer = require("multer")
 
 let router = express.Router();
 

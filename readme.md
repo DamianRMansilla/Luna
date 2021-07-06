@@ -4,17 +4,20 @@ Crear producto: ok
 Editar producto: ok
 Delete producto: ok
 Crear register user: ok
-
+Crear edicion user: ok
+Agregado multer para imagen avatar: ok
+Creacion error: ok
+Validaciones login: ok
 
 Trabajos a realizar:
 
-Crear edicion user
+Session, cookies. - agregar errores en login
+Profile page con info de usuario
+Agregar imagen al usuario
+Agregar info de profile en header
 Crear delete user
 Crear funcion login, logout.
 Linkear con base de datos
-Profile page
-Agregar info de profile en header
-
 
 
 Posibles:

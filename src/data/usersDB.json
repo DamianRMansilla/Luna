@@ -3,8 +3,9 @@
   "id": 1,
   "Nombre": "Damian",
   "Apellido": "Mansilla",
-  "User": "Zalin",
+  "User": "  Zalin",
+  "Avatar": "user-1625512693258.jpg",
   "Mail": "damianrmansilla85@gmail.com",
-  "Contraseña": "probando"
+  "Contraseña": "$2a$10$eeFWUgN6vYbP3VcB3Q7RNOwNgDyso4HP.AryZ0rI2P6T5cirOXs2i"
  }
 ]

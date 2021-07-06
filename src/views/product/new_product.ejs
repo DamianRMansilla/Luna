@@ -5,7 +5,7 @@
 <%- include("../partials/header")%>
 <body>
     <h2 class="new_product_title">Creacion de productos</h2>
-    <form action="/products/new" class="new_product" method="POST">
+    <form action="/products/new" class="new_product" method="POST" enctype="multipart/form-data">
         <div class="item">
             <label for="file"><h4>Seleccione la imagen del producto</h4></label>
             <input type="file"  class="choose_file" id="file" name="file" accept=".jgp, .png">

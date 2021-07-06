@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head")%>
+
+<%- include("../partials/header")%>
+<body>
+
+    <h2 class="new_product_title">Edición de usuario <%= user.Nombre %> <%= user.Apellido %> </h2>
+    <form action="/user/edit/<%= user.id %>?_method=PUT" class="new_product" method="POST">
+        <div class="name_last">
+            <div class="name">
+                <label for="name">Nombre</label>
+                <input type="text" name="name" id="name" value="<%= user.Nombre %>" required>
+            </div>
+            <div class="last_name">
+                <label for="last_name">Apellido</label>
+                <input type="text" name="last_name" id="last_name" value="<%= user.Apellido %>" required>
+            </div>
+        </div>
+        <div>
+            <label for="user">Nombre de usuario</label>
+            <input type="text" name="user" id="user" value="<%= user.User %>" required>
+        </div>
+        <div>
+            <label for="mail">Correo electrónico</label>
+            <input type="mail" name="mail" id="mail" value="<%= user.Mail %>" required>
+        </div>
+        <p class="terminos">Al pulsar Continuar, confirmas haber leído
+             y aceptado nuestras <a class="condiciones" href="">Condiciones de uso</a>. Para más información 
+             sobre el tratamiento de tus datos, consulta nuestro <a class="privacidad" href="">Aviso de privacidad</a>.</p>
+        <div class="robot">
+            <input type="checkbox" name="robot" id="robot" required>
+            <label for="robot">No soy un robot</label>
+        </div>
+        <div class="buttons">
+            <button type="submit" class="button1">Continuar</button>
+            <button type="reset" class="button2">Borrar</button>
+        </div>
+    </form>
+    
+
+
+
+    <%- include("../partials/footer")%>
+
+</body>
+</html>
