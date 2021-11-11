@@ -20,11 +20,14 @@ const rutasUser = require("./src/routes/users.js");
 const logMiddleware = require("./middleware/logMiddleware");
 const cookieParser = require("cookie-parser");
 const cookieAuthMiddleware = require("./middleware/cookieAuthMiddleware");
+const loggedUserMiddleware = require("./middleware/loggedUserMiddleware")
 
 app.use(logMiddleware)
 app.use(session({secret: "Shh, es un secreto", resave: false, saveUninitialized: true}));
 app.use(cookieParser());
 app.use(cookieAuthMiddleware)
+app.use(loggedUserMiddleware)
+
 
 app.use("/", rutasMain);
 app.use("/products", rutasProductos);

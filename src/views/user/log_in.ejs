@@ -11,12 +11,18 @@
         <main class="main_login">
             <form class="login" action="" method="POST">
                 <div class="user">
-                    <label for="username">Correo electrónico o usuario</label>
-                    <input type="email" class="fill_text" id="email" name="email" required>
+                    <label for="emailLogin">Correo electrónico o usuario</label>
+                    <input type="email" class="fill_text" id="emailLogin" name="emailLogin" value="<%= locals.old && old.emailLogin ? old.emailLogin: '' %>">
+                    <% if (locals.errors && errors.emailLogin) { %>
+                        <div class="errores"><%= errors.emailLogin.msg %></div>
+                    <% } %>
                 </div>    
                 <div class="pass">
-                    <label for="contraseña">Contraseña</label>
-                    <input type="password" class="fill_text" id="password" name="password" required>
+                    <label for="passwordLogin">Contraseña</label>
+                    <input type="password" class="fill_text" id="passwordLogin" name="passwordLogin">
+                    <% if (locals.errors && errors.passwordLogin) { %>
+                        <div class="errores"><%= errors.passwordLogin.msg %></div>
+                    <% } %>
                 </div>
                 <div class="fillin">
                     <input type="checkbox" id="remember-me" name="rememberme">

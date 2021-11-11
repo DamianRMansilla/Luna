@@ -7,17 +7,22 @@ Crear register user: ok
 Crear edicion user: ok
 Agregado multer para imagen avatar: ok
 Creacion error: ok
-Validaciones login: ok
+Validaciones register y login: ok
+Session, cookies: ok
+Profile page con info de usuario: ok
+Agregar imagen al usuario: ok
+Crear funcion login: ok
+Crear delete user: ok
+Validaciones creadas en login: ok
+Crear funcion logout: ok
+Agregar info de profile en header: ok
+
 
 Trabajos a realizar:
 
-Session, cookies. - agregar errores en login
-Profile page con info de usuario
-Agregar imagen al usuario
-Agregar info de profile en header
-Crear delete user
-Crear funcion login, logout.
-Linkear con base de datos
+Terminar busqueda.
+Linkear con base de datos.
+Terminar vistas.
 
 
 Posibles:

@@ -2,10 +2,12 @@ const path = require("path");
 const fs = require("fs")
 const { writeFileSync } = require("fs");
 const { validationResult } = require("express-validator");
-const bcrypt = require("bcryptjs")
+const bcrypt = require("bcryptjs");
+const User = require("../../models/userModel")
 
 
 let userController = {
+    
     register: (req, res) => {
         res.render(path.resolve(__dirname, "../views/user/register"))
     },
@@ -19,6 +21,16 @@ let userController = {
                 let users
                 if (readUsers == ""){ users = []}
                 else { users = JSON.parse(readUsers)}
+
+                let userInDB = User.findByField("Mail", req.body.mail);
+
+                if(userInDB){
+                    return res.render(path.resolve(__dirname, "../views/user/register.ejs"), {
+                        errors: {
+                            mail: { msg: "Este email ya se encuentra registrado"}
+                        }
+                    })
+                };
 
                 const lastUserID = () => {
                     let ultimo = 0
@@ -58,34 +70,65 @@ let userController = {
     },
 
     connect: (req, res) => {
-        let archivoUsuario = fs.readFileSync(path.join(__dirname, "../data/usersDB.json"), {encoding: "utf-8"})
-        let usuarios;
+        let userEmpty = req.body.emailLogin
 
-        if (archivoUsuario == "") {
-            usuarios = [];
-        } else {
-            usuarios = JSON.parse(archivoUsuario);
+        let userToLogin = User.findByField("Mail", req.body.emailLogin);
+
+        let errors = validationResult(req);
+
+        // Si no se carga un correo electronico
+        if(userEmpty == ""){
+            res.render(path.resolve(__dirname, "../views/user/log_in.ejs"), { errors: errors.mapped(), old: req.body })}
+
+        // Si el correo electronico cargado no se encuentra en nuestra base de datos
+        if(!userToLogin){
+            return res.render(path.resolve(__dirname, "../views/user/log_in.ejs"), {
+                errors: {
+                    emailLogin: { msg: "Correo electrónico no registrado en nuestra base de datos"}
+                }
+            })
         }
 
-        for (let i = 0; i < usuarios.length; i++) {
-            if (usuarios[i].Mail == req.body.email){
-                if (bcrypt.compareSync(req.body.password, usuarios[i].Contraseña)){
-                    usuarioALoguearse = usuarios[i];
-                    break;
+        // Si no hay errores de validacion
+        if (errors.isEmpty()){
+            let archivoUsuario = fs.readFileSync(path.join(__dirname, "../data/usersDB.json"), {encoding: "utf-8"})
+            let usuarios;
+
+            if (archivoUsuario == "") {
+                usuarios = []; } 
+            else {
+                usuarios = JSON.parse(archivoUsuario);
+            }
+
+
+            
+            for (let i = 0; i < usuarios.length; i++) {
+                if (usuarios[i].Mail == req.body.emailLogin){
+                    if (bcrypt.compareSync(req.body.passwordLogin, usuarios[i].Contraseña)){
+                        usuarioALoguearse = usuarios[i];
+                        break;
+                    }
+                    else {
+                        return res.render(path.resolve(__dirname, "../views/user/log_in.ejs"), {
+                            errors: {
+                                emailLogin: { msg: "Credenciales invalidas"}
+                            }
+                        })
+                    }
                 }
             }
-        }
-        if(usuarioALoguearse == undefined) {
-            return res.render(path.join(__dirname, "../views/user/log_in.ejs"));
-        } else {        
-            req.session.usuarioLogueado = usuarioALoguearse;
+            if(usuarioALoguearse == undefined) {
+                return res.render(path.join(__dirname, "../views/user/log_in.ejs"));} 
+            else {     
+                //delete usuarioALoguearse.Contraseña   
+                req.session.usuarioLogueado = usuarioALoguearse;
 
-            if(req.body.rememberme != undefined){
-                res.cookie("rememberme", usuarioALoguearse.Mail, {maxAge: 60000})
-            }
-            res.send(req.session.usuarioLogueado)}
-        
-
+                if(req.body.rememberme != undefined){
+                    res.cookie("rememberme", usuarioALoguearse.Mail, {maxAge: 60000})
+                }
+                res.redirect("/user/profile")
+            }} 
+        //else {res.render(path.resolve(__dirname, "../views/user/log_in.ejs"), { errors: errors.mapped(), old: req.body })}
     },
 
     edit: (req, res) =>{
@@ -120,7 +163,26 @@ let userController = {
     },
 
     profile: (req, res) => {
-        res.render(path.resolve(__dirname, "../views/user/profileUser.ejs"))
+        return res.render(path.resolve(__dirname, "../views/user/profileUser.ejs"), 
+        {user: req.session.usuarioLogueado}) 
+    },
+
+
+    destroy: (req, res) => {
+        let users = fs.readFileSync(path.join(__dirname, "../data/usersDB.json"), { encoding: "utf-8" });
+        users = JSON.parse(users);
+        let eraseUser = users.filter(user => user.id != req.params.id)
+        eraseUser = JSON.stringify(eraseUser, null, 4);
+
+        fs.writeFileSync(path.join(__dirname, "../data/usersDB.json"), eraseUser);
+        
+        res.redirect('/');
+    },
+
+    logout: (req, res) => {
+        res.clearCookie("rememberme");
+        req.session.destroy();
+        return res.redirect("/")
     }
 
 } 

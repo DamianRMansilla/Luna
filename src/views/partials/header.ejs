@@ -13,14 +13,28 @@
         <div class="big-big-menu">
             <nav class="big-menu">
                 <ul class="menu">
-                    <li><a href="../">INICIO</a></li>
-                    <li><a href="../products">PRODUCTOS</a></li>
-                    <li><a href="../products/new_in">NOVEDADES</a></li>
-                    <li><a href="../contact_us">CONTACTO</a></li>
+                    <li><a class="menu_option" href="../">INICIO</a></li>
+                    <li><a class="menu_option" href="../products">PRODUCTOS</a></li>
+                    <li><a class="menu_option" href="../products/new_in">NOVEDADES</a></li>
+                    <li><a class="menu_option" href="../contact_us">CONTACTO</a></li>
                 </ul>
-                <ul class="ingreso">
-                    <li> <a href="../user/login"><i class="fas fa-user"></i> Ingresar</a> </li>
-                </ul>
+
+                <div class="header-profile">
+                    <% if (locals.isLogged) {%>
+
+                    <img class="avatar-header" src="/img/profileImg/<%= locals.usuarioLogueado.Avatar %>" alt="">
+                    <form class="form-header" action="">
+                        <select name="select-header" id="">
+                            <option value=""><a href="../user/profileUser.ejs"></a>Perfil</a></option>
+                            <option value="">Salir</option>
+                        </select>
+                    </form>
+                    <% } else { %>
+                        <ul class="ingreso">
+                            <li> <a href="../user/login"><i class="fas fa-user"></i> Ingresar</a> </li>
+                        </ul>
+                    <% } %>
+                </div>
             </nav>
         </div>
     </div>  

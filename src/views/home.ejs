@@ -2,14 +2,81 @@
 <html lang="en">
 <%- include("./partials/head")%>
 
-<%- include("./partials/header")%>
 <body>
-
+<%- include("./partials/header")%>
+    <div class="front_img">
+        <a href="" class="news_link">
+            <div class="front_img_div">
+                <img src="img/sweaters_front.jpg" alt="">
+                <div class="text_news">
+                    <p class="news news_title">OFERTAS ÚNICAS</p>
+                    <p class="news news_info">Liquidacion Invierno</p>
+                </div>    
+            </div>
+        </a>
+        <a href="" class="news_link">
+            <div class="front_img_div">
+                <img src="img/pants.jpg" alt="">
+                <div class="text_news">
+                    <p class="news">Temporada 21/22</p>
+                </div>
+            </div>
+        </a>
+    </div>
     <main>
-        <h1>Este es el home</h1>
+        <div>
+            <h1 class="categoria-titulo">Categorías</h1>
+            <div class="categ_products">
+                <a href="./products/trousers">
+                    <div class="product_card jean">
+                        <p class="product_card_name">Jeans</p>
+                    </div>
+                </a>
+                <a href="./products/tshirt">
+                    <div class="product_card tshirt">
+                        <p class="product_card_name">Remeras</p>
+                    </div>
+                </a>
+                <a href="./products/sweater">
+                    <div class="product_card sweater">
+                        <p class="product_card_name">Sweaters</p>
+                    </div>
+                </a>
+                <a href="./products/trousers">
+                    <div class="product_card short">
+                        <p class="product_card_name">Shorts</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div>
+            <h1 class="categoria-titulo">Los mas vendidos</h1>
+            <div class="categ_products">
+                <a href="./products/trousers">
+                    <div class="product_card jean">
+                        <p class="product_card_name">Jeans</p>
+                    </div>
+                </a>
+                <a href="./products/tshirt">
+                    <div class="product_card tshirt">
+                        <p class="product_card_name">Remeras</p>
+                    </div>
+                </a>
+                <a href="./products/sweater">
+                    <div class="product_card sweater">
+                        <p class="product_card_name">Sweaters</p>
+                    </div>
+                </a>
+                <a href="./products/trousers">
+                    <div class="product_card short">
+                        <p class="product_card_name">Shorts</p>
+                    </div>
+                </a>
+            </div> 
+        </div>
     </main>
 
-<%- include("./partials/footer")%>
+    <%- include("./partials/footer")%>
 
 </body>
 </html>

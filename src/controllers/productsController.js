@@ -8,12 +8,18 @@ let productsController = {
     products: (req, res) => {
         res.render(path.resolve(__dirname, "../views/product/products"))
     },
+
+
     trousers: (req, res) => {
         res.render(path.resolve(__dirname, "../views/product/trousers"))
     },
+
+
     tshirt: (req, res) => {
         res.render(path.resolve(__dirname, "../views/product/tshirt"))
     },
+
+
     sweater: (req, res) => {
         res.render(path.resolve(__dirname, "../views/product/sweater"))
     },
@@ -76,7 +82,6 @@ let productsController = {
     new: (req, res) => {
         res.render(path.resolve(__dirname, "../views/product/new_product"))
     },
-
 
 
     edit: (req, res) => {

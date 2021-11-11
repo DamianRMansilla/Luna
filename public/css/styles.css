@@ -3,6 +3,15 @@
     width: 100%;
 }
 
+body{
+    position: relative;
+    min-height: 100vh;
+}
+
+main{
+    padding-bottom: 20vh;
+}
+
 /*----------------------------------- Configuracion header ------------------------------------*/
 header{
     display: flex;
@@ -26,11 +35,10 @@ header{
 }
 
 .busqueda{
-    display: flex;
-    justify-content: flex-end;
     margin-top: 2vh;
     position: relative;
-    width: 100%;
+    left: 8%;
+    width: 85%;
 }
 
 .busqueda input{
@@ -39,7 +47,7 @@ header{
     border: none;
     background-color: #FFCFCF;
     line-height: 4vh;
-    width: 25%;
+    width: 50%;
 }
 
 .busqueda button{
@@ -53,29 +61,45 @@ header{
 }
 .big-big-menu{
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     height: 100%;
+    width: 100%;
 }
 
 .big-menu{
     display: flex;
+    margin-top: 2vh;
 }
 
 .menu{
     display: flex;
     font-family: 'Lato', sans-serif;
     font-size: 20px;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
 }
 
 .menu li{
-    margin: 0 2vw 0.5vh 2vw;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    margin: 0 8vw 0 0;
 }
 
-.menu li a{
+.menu li a{    
     text-decoration: none;
     color: black;
+}
+
+.header-profile{
+    width: 90%;
+}
+
+.ingreso{
+    box-sizing: border-box;
+    padding: 0;
+    padding-right: 2vw;
 }
 
 .ingreso li{
@@ -86,7 +110,6 @@ header{
     text-align: right;
     display: flex;
     justify-content: flex-end;
-    padding-right: 2vw;
     align-items: flex-end;
     line-height: 23px;
 }
@@ -101,11 +124,24 @@ header{
     color: rgb(139, 134, 134);
 }
 
+.menu_option{
+    box-sizing: border-box;
+}
+
+.menu_option:hover{
+    box-sizing: border-box;
+    padding: 0 5px;
+    background-color: rgba(255, 127, 80, 0.308);
+}
+
+
 /*---------------- Configuracion footer ----------------------- */
 
 .footer{
     background-color: #FF8C90;
     margin-top: 20px;
+    position: absolute;
+    bottom: 0;
 }
 
 .direccion{
@@ -542,4 +578,157 @@ header{
 
 .unidad label{
     margin-left: 1vw;
+}
+
+
+
+/*---------------- Configuracion Profile ----------------------- */
+
+.saludo{
+    margin-top: 2vh;
+    margin-left: 4vw;
+}
+
+.avatar{
+    max-width: 250px;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 2vh;
+    margin-left: 5vw;
+}
+
+.avatar-header{
+    max-width: 10%;
+}
+
+
+.form-header{
+    max-width: 10%;
+}
+
+/*.header-profile{
+    display: flex;
+    flex-direction: column;
+}*/
+
+/*---------------- Configuracion Home ----------------------- */
+
+.categ_products{
+    display: flex;
+    justify-content: center;
+}
+
+.categoria-titulo{
+    margin: 4vh auto;
+    text-align: center;
+}
+
+.product_card a{
+    width: 18vw;
+    height: 40vh;
+}
+
+.product_card{
+    width: 18vw;
+    height: 40vh;
+    margin: 2vh auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgb(184, 154, 154);
+    border-radius: 5px;
+}
+
+.jean{
+    background: url("../img/jeans.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.tshirt{
+    background: url("../img/remeras.jpg");
+    background-size: cover;
+    background-position: center;
+
+}
+
+.sweater{
+    background: url("../img/sweaters.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.short{
+    background: url("../img/shorts.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.product_card_name{
+    display: none;
+    margin: 0;
+    position: absolute;
+    text-align: center;
+    width: 60%;
+    line-height: 5vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    color: white;
+}
+
+.product_card:hover > .product_card_name{
+    display: block;
+}
+
+.front_img{
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.front_img_div{
+    box-sizing: border-box;
+    width: 43vw;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.front_img a{
+    box-sizing: border-box;
+    width: 43vw;
+    margin: 5vh;
+}
+
+.news{
+    text-align: center;
+    line-height: 6vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.text_news{
+    position: absolute;
+    width: 40%;
+}
+
+
+.news_link:hover > .front_img_div{
+    box-shadow:  0 0 5px 5px rgb(148, 148, 148);
+}
+
+.news_link:hover > .front_img_div .text_news .news{
+    color: rgb(235, 144, 144);
+}
+
+.news_title{
+    border-radius: 5px 5px 0 0;
+}
+
+.news_info{
+    border-radius: 0 0 5px 5px;
 }

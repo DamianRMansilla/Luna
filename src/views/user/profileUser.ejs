@@ -4,8 +4,17 @@
 
 <%- include("../partials/header")%>
 <body>
-<h1>soy un profile</h1>
-    
+<h1 class="saludo">Hola <%= user.Nombre %> !!</h1>
+
+<img class="avatar" src="/img/profileImg/<%= user.Avatar%>" alt="">
+
+<form action="/user/delete/<%= user.id %>?_method=DELETE" method="POST">
+    <button type="submit">Eliminar Usuario</button>
+</form>  
+<form action="/user/logout" method="GET">
+    <button type="submit">Logout</button>
+</form> 
+
 <%- include("../partials/footer")%>
 
 </body>

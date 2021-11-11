@@ -37,7 +37,10 @@
             <button type="reset" class="button2">Borrar</button>
         </div>
     </form>
-    
+
+    <form action="/user/delete/<%= user.id %>?_method=DELETE" method="POST">
+        <button type="submit">Eliminar Usuario</button>
+    </form>  
 
 
 

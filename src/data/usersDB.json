@@ -3,9 +3,36 @@
   "id": 1,
   "Nombre": "Damian",
   "Apellido": "Mansilla",
-  "User": "  Zalin",
-  "Avatar": "user-1625512693258.jpg",
+  "User": " Zalin",
+  "Avatar": "user-1625754644430.jpg",
   "Mail": "damianrmansilla85@gmail.com",
-  "Contraseña": "$2a$10$eeFWUgN6vYbP3VcB3Q7RNOwNgDyso4HP.AryZ0rI2P6T5cirOXs2i"
+  "Contraseña": "$2a$10$gPEAQhehXjJf/QvFOo9.c.xBhdsgYgqdejltk71XyJu2K.nkU26SK"
+ },
+ {
+  "id": 2,
+  "Nombre": "Leandra",
+  "Apellido": "Arizaga",
+  "User": "Lea",
+  "Avatar": "user-1625764899964.jpg",
+  "Mail": "lea.arizaga@gmail.com",
+  "Contraseña": "$2a$10$O5S9zwEPpij32.XBuBvRpeZjsD6P28STgS31urQtLQ8GwnS0HokQ2"
+ },
+ {
+  "id": 3,
+  "Nombre": "Luciana",
+  "Apellido": "Mansilla",
+  "User": "Luli",
+  "Avatar": "user-1625764927370.jpg",
+  "Mail": "lulaa@gmail.com",
+  "Contraseña": "$2a$10$.m.iGGS3U.P1V4OxCu.PQeoQD84qdHmqTi98jcKmg5kmN41bZLRCe"
+ },
+ {
+  "id": 4,
+  "Nombre": "Alejo",
+  "Apellido": "Mansilla",
+  "User": " Panfletito",
+  "Avatar": "user-1625771173764.jpg",
+  "Mail": "thepanfletman@gmail.com",
+  "Contraseña": "$2a$10$sGmniAshQY0T64YkzrRzo.MZbsXd5imjgP3kWH1/050dHQhfPQR7K"
  }
 ]

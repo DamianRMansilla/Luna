@@ -4,7 +4,8 @@ const multer = require("multer");
 const userControlador = require("../controllers/userController.js");
 const { body } = require("express-validator");
 const { BADFAMILY } = require("dns");
-const guestMiddleware = require("../../middleware/guestMiddleware")
+const guestMiddleware = require("../../middleware/guestMiddleware");
+const authMiddleware = require("../../middleware/authMiddleware.js");
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -43,13 +44,19 @@ const validaciones = [
     })
 ]
 
+const validacionesLogin = [
+    body("emailLogin").notEmpty().withMessage("Por favor introduce un email válido"),
+    body("passwordLogin").notEmpty().withMessage("Por favor ingresa una contraseña").bail().isAlphanumeric().withMessage("La contraseña debe ser alfanumerica")
+]
+
+
 // Rutas
 
 router.get("/register", guestMiddleware, userControlador.register);
 router.post("/register", upload.single("userImage"), validaciones, userControlador.newUser);
 
 router.get("/login", guestMiddleware, userControlador.login);
-router.post ("/login", userControlador.connect);
+router.post ("/login", validacionesLogin, userControlador.connect);
 
 router.get("/check", function(req, res){
     if (req.session.usuarioLogueado == undefined){
@@ -62,7 +69,11 @@ router.get("/check", function(req, res){
 router.get("/edit/:id", userControlador.edit);
 router.put ("/edit/:id", userControlador.update);
 
-router.get("/profile", userControlador.profile);
+router.delete("/delete/:id", userControlador.destroy);
+
+router.get("/profile", authMiddleware, userControlador.profile);
+
+router.get("/logout", userControlador.logout)
 
 
 module.exports = router
