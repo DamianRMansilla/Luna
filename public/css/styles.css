@@ -128,11 +128,6 @@ header{
     box-sizing: border-box;
 }
 
-.menu_option:hover{
-    box-sizing: border-box;
-    padding: 0 5px;
-    background-color: rgba(255, 127, 80, 0.308);
-}
 
 
 /*---------------- Configuracion footer ----------------------- */
