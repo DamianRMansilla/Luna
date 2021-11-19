@@ -13,21 +13,34 @@
         <div class="tipo_de_producto">
             <h4>Elija el tipo de producto</h4>
             <div class="unidad">
-                <input type="radio" id="sweater" name="producto" value="Sweater">
-                <label for="sweater">Sweater</label>
-            </div>
-            <div class="unidad">    
-                <input type="radio" id="jean" name="producto" value="Jean">
-                <label for="jean">Jean</label>
-            </div>    
-            <div class="unidad">
-                <input type="radio" id="remera" name="producto" value="Remera">
-                <label for="remera">Remera</label>
+                <!--<% for(let i = 0; i < categorias.length; i++){ %>
+                    <input type="radio" id="<%= categorias[i].categoria_producto %>" name="producto" value="<%= categorias[i].categoria_producto %>">
+                    <label for="<%= categorias[i].categoria_producto %>">
+                        <%= categorias[i].categoria_producto %>
+                    </label>
+                <% } %>-->
+                <select class="input" id="brand_product" name="brand_product" required>
+                    <% for(let i = 0; i < categorias.length; i++){ %>
+                        <option value="<%= categorias[i].id_categoria_producto %>" >
+                            <%= categorias[i].categoria_producto %>
+                        </option>
+                    <% } %>
+                </select>
             </div>
         </div>
         <div class="item">
             <label for="name_product">Nombre del producto</label>
             <input type="text" class="input" id="name_product" name="name_product" required>
+        </div>
+        <div>
+            <label for="name_product">Marca del producto</label>
+            <select class="input" id="brand_product" name="brand_product" required>
+                <% for(let i = 0; i < marcas.length; i++){ %>
+                    <option value="<%= marcas[i].id_marcas %>" >
+                        <%= marcas[i].marcas %>
+                    </option>
+                <% } %>
+            </select>
         </div>
         <div class="item">
             <label for="price_product">Precio</label>

@@ -1,7 +1,7 @@
 const { writeFileSync } = require("fs");
-const path = require("path")
-let fs = require("fs")
-
+const path = require("path");
+let fs = require("fs");
+let db = require("../../database/models");
 
 let productsController = {
 
@@ -26,7 +26,7 @@ let productsController = {
 
 
     create: (req, res) => {
-        
+
         let readSweater = fs.readFileSync(path.resolve(__dirname, "../data/productsDatabase.json"), {encoding: "utf-8"})
         let sweater;
         if (readSweater == "") { sweater = [] }
@@ -80,7 +80,15 @@ let productsController = {
 
 
     new: (req, res) => {
-        res.render(path.resolve(__dirname, "../views/product/new_product"))
+        let listadoMarcas = db.Marca.findAll()
+        let listadoCategorias = db.Categoria.findAll()
+        // let listadoColores = db.Color.findAll()
+
+        Promise.all([listadoMarcas, listadoCategorias])
+            .then(function([marcas, categorias]){
+                return res.render(path.resolve(__dirname, "../views/product/new_product"), {marcas, categorias})
+            })
+        //res.render(path.resolve(__dirname, "../views/product/new_product"))
     },
 
 
