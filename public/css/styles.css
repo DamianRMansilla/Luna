@@ -135,8 +135,7 @@ header{
 .footer{
     background-color: #FF8C90;
     margin-top: 20px;
-    position: absolute;
-    bottom: 0;
+
 }
 
 .direccion{
@@ -505,6 +504,11 @@ header{
 }
 
 /*---------------- Configuracion New Product ----------------------- */
+
+.bodyNewProduct{
+    min-height: 100vh;
+    position: relative;
+}
 
 .new_product_title{
     text-align: center;

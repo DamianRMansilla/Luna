@@ -7,18 +7,18 @@ module.exports = function(sequelize, dataTypes){
             autoIncrement: true
         },
         nombre_color: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING(20)
         }
     }
     let config = {
-        tableName: "colores",
+        tableName: "colores_productos",
         timestamps: false
     }
     let Color = sequelize.define(alias, cols, config);
 
     Color.associate = function(models){
         Color.hasMany(models.Producto, {
-            as: "productos",
+            as: "productos-color",
             foreignKey: "idcolor"
         })}
 

@@ -23,47 +23,73 @@ let productsController = {
     sweater: (req, res) => {
         res.render(path.resolve(__dirname, "../views/product/sweater"))
     },
-
-
+    
+    
+    new: (req, res) => {
+        let listadoMarcas = db.Marca.findAll()
+        let listadoCategorias = db.Categoria.findAll()
+        let listadoColores = db.Color.findAll()
+        let listadoTalles = db.Talle.findAll()
+    
+        Promise.all([listadoMarcas, listadoCategorias, listadoColores, listadoTalles])
+            .then(function([marcas, categorias, colores, talles]){
+                return res.render(path.resolve(__dirname, "../views/product/new_product"), {marcas, categorias, colores, talles})
+            })
+    },
+    
+    
     create: (req, res) => {
+        db.Producto.create({
+            producto: req.body.name_product,
+            idcategoria_producto: req.body.category_product,
+            idcolor: req.body.color_product,
+            idmarca: req.body.brand_product,
+            precio: req.body.price_product,
+            descripcion: req.body.descript_product,
+            idtalle: req.body.size_product,
+            cantidad_stock: req.body.quantity_product
+        })
 
-        let readSweater = fs.readFileSync(path.resolve(__dirname, "../data/productsDatabase.json"), {encoding: "utf-8"})
-        let sweater;
-        if (readSweater == "") { sweater = [] }
-        else { sweater = JSON.parse(readSweater)}
+        .catch(function (err) {
+          console.log("no se creo el producto", err)});
 
-        const lastID = () => {
-            let ultimo = 0;
-            sweater.forEach(oneProduct => {
-                if (ultimo < oneProduct.id) {
-                    ultimo = oneProduct.id;
-                }
-            });
-            return ultimo;
-        }
+        res.redirect("/")
+
+    //      Creacion del producto en JSON:
+
+    //     let readSweater = fs.readFileSync(path.resolve(__dirname, "../data/productsDatabase.json"), {encoding: "utf-8"})
+    //     let sweater;
+    //     if (readSweater == "") { sweater = [] }
+    //     else { sweater = JSON.parse(readSweater)}
+
+    //     const lastID = () => {
+    //         let ultimo = 0;
+    //         sweater.forEach(oneProduct => {
+    //             if (ultimo < oneProduct.id) {
+    //                 ultimo = oneProduct.id;
+    //             }});
+    //         return ultimo;
+    //     }
         
-        let prod_sweater = {
-            id: lastID() + 1,
-            Tipo_de_producto: req.body.producto,
-            Nombre: req.body.name_product,
-            Precio: req.body.price_product,
-            Descripcion: req.body.descript_product,
-            Talle_36: req.body.talle_jean_36,
-            Talle_38: req.body.talle_jean_38,
-            Talle_40: req.body.talle_jean_40,
-            Talle_42: req.body.talle_jean_42,
-            Talle_44: req.body.talle_jean_44,
-            Talle_46: req.body.talle_jean_46,
-        };
+    //     let prod_sweater = {
+    //         id: lastID() + 1,
+    //         Tipo_de_producto: req.body.producto,
+    //         Nombre: req.body.name_product,
+    //         Precio: req.body.price_product,
+    //         Descripcion: req.body.descript_product,
+    //         Talle_36: req.body.talle_jean_36,
+    //         Talle_38: req.body.talle_jean_38,
+    //         Talle_40: req.body.talle_jean_40,
+    //         Talle_42: req.body.talle_jean_42,
+    //         Talle_44: req.body.talle_jean_44,
+    //         Talle_46: req.body.talle_jean_46,
+    //     };
 
-
+    //     sweater.push(prod_sweater)
+    //     let sweaterJSON = JSON.stringify(sweater, null, " ")
+    //     fs.writeFileSync(path.resolve(__dirname,"../data/productsDatabase.json"), sweaterJSON)
         
-        sweater.push(prod_sweater)
-
-        let sweaterJSON = JSON.stringify(sweater, null, " ")
-        fs.writeFileSync(path.resolve(__dirname,"../data/productsDatabase.json"), sweaterJSON)
-        
-        res.redirect("/products/new")
+    //     res.redirect("/products/new")
     },
 
     sweaterID: (req, res) => {
@@ -76,19 +102,6 @@ let productsController = {
 
     new_in: (req, res) => {
         res.render(path.resolve(__dirname, "../views/product/new_in"))
-    },
-
-
-    new: (req, res) => {
-        let listadoMarcas = db.Marca.findAll()
-        let listadoCategorias = db.Categoria.findAll()
-        // let listadoColores = db.Color.findAll()
-
-        Promise.all([listadoMarcas, listadoCategorias])
-            .then(function([marcas, categorias]){
-                return res.render(path.resolve(__dirname, "../views/product/new_product"), {marcas, categorias})
-            })
-        //res.render(path.resolve(__dirname, "../views/product/new_product"))
     },
 
 

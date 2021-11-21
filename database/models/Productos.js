@@ -1,5 +1,6 @@
 module.exports = function(sequelize, dataTypes){
     let alias = "Producto";
+    
     let cols = {
         id_productos: {
             type: dataTypes.INTEGER,
@@ -10,7 +11,7 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.INTEGER
         },
         producto: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING(45)
         },
         idmarca: {
             type: dataTypes.INTEGER
@@ -19,10 +20,10 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.INTEGER
         },
         descripcion: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING(255)
         },
-        talle: {
-            type: dataTypes.STRING
+        idtalle: {
+            type: dataTypes.INTEGER
         },
         idcategoria_producto: {
             type: dataTypes.INTEGER
@@ -38,8 +39,29 @@ module.exports = function(sequelize, dataTypes){
     let Producto = sequelize.define(alias, cols, config);
 
     Producto.associate = function(models){
+
+        Producto.belongsTo(models.Marca, {
+            as: "marca",
+            foreignKey:"idmarca"
+        })
+
+        Producto.belongsTo(models.Color, {
+            as: "color",
+            foreignKey:"idcolor"
+        })
+
+        Producto.belongsTo(models.Categoria, {
+            as: "categoria",
+            foreignKey:"idcategoria_producto"
+        })
+
+        Producto.belongsTo(models.Talle, {
+            as: "talles",
+            foreignKey:"idtalle"
+        })
+
         Producto.hasMany(models.Carrito, {
-            as: "prducto-carrito",
+            as: "producto-carrito",
             foreignKey: "idproducto"
         })
 
