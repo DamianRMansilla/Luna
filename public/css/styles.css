@@ -579,6 +579,14 @@ header{
     margin-left: 1vw;
 }
 
+.newIn{
+    display: flex;
+}
+
+.newIn input{
+    width: 10%;
+}
+
 
 
 /*---------------- Configuracion Profile ----------------------- */
@@ -730,4 +738,64 @@ header{
 
 .news_info{
     border-radius: 0 0 5px 5px;
+}
+
+
+/*--------------------------------- Configuracion vista productos general ----------------------------------*/
+
+
+.productList{
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 4vh 2vw;
+}
+
+.productItem{
+    box-sizing: border-box;
+    width: 20%;
+    margin: 2vw;
+    padding: 1%;
+
+}
+
+.productItemText{
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 2%;
+}
+
+.productItemText h3{
+    width: 85%;
+    margin: auto;
+}
+
+.productItemText p{
+    width: 85%;
+    margin: auto;
+}
+
+.productItem:hover{
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.308);
+}
+
+.productItem h3{
+    text-align: center;
+}
+
+.imageContainer{
+    position: relative;
+}
+
+.nuevoIngreso{
+    width: 35%;
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    font-size: 10px;
+    color: white;
+    background-color: black;
+    text-align: center;
+    padding: 2% 0;
 }

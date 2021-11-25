@@ -6,7 +6,21 @@ let db = require("../../database/models");
 let productsController = {
 
     products: (req, res) => {
-        res.render(path.resolve(__dirname, "../views/product/products"))
+        listaProductos = db.Producto.findAll();
+        listadoMarcas = db.Marca.findAll();
+        listadoColores = db.Color.findAll();
+        listadoTalles = db.Talle.findAll();
+        listadoCategorias = db.Categoria.findAll()
+
+        Promise.all([listaProductos, listadoMarcas, listadoColores, listadoTalles, listadoCategorias])
+            .then(function([productos, marcas, colores, talles, categorias]){
+                return res.render(path.resolve(__dirname, "../views/product/products"), {productos, marcas, colores, talles, categorias})
+            })
+
+            .catch(function (err) {
+                console.log("no se muestran los productos", err)});
+        
+        //res.render(path.resolve(__dirname, "../views/product/products"))
     },
 
 
@@ -37,7 +51,6 @@ let productsController = {
             })
     },
     
-    
     create: (req, res) => {
         db.Producto.create({
             producto: req.body.name_product,
@@ -47,7 +60,9 @@ let productsController = {
             precio: req.body.price_product,
             descripcion: req.body.descript_product,
             idtalle: req.body.size_product,
-            cantidad_stock: req.body.quantity_product
+            cantidad_stock: req.body.quantity_product,
+            imagen: req.file.filename,
+            nuevoIngreso: req.body.newIn
         })
 
         .catch(function (err) {

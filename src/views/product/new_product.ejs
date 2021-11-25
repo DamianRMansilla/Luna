@@ -5,11 +5,11 @@
 <%- include("../partials/header")%>
 <body class="bodyNewProduct">
     <h2 class="new_product_title">Creacion de productos</h2>
-    <form action="/products/new" class="new_product" method="POST" ><!--enctype="multipart/form-data"-->
-    <!--<div class="item">
+    <form action="/products/new" class="new_product" method="POST" enctype="multipart/form-data">
+        <div class="item">
             <label for="file"><h4>Seleccione la imagen del producto</h4></label>
-            <input type="file"  class="choose_file" id="file" name="file" accept=".jgp, .png">
-        </div>-->
+            <input type="file"  class="choose_file" id="file" name="file" multiple accept=".jgp, .png">
+        </div>
         <div class="tipo_de_producto">
             <h4>Elija la categoría de producto</h4>
             <div class="unidad">
@@ -68,7 +68,17 @@
                     <% } %>
                 </select>
                 <input type="number" class="talle_jean" name="quantity_product" id="quantity_product">
-
+        </div>
+        <div>
+            <p>Es un nuevo ingreso?</p>
+            <div class="newIn">
+                <input type="radio" id="si" value="si" name="newIn">
+                <label for="si">Si</label>
+            </div>
+            <div class="newIn">
+                <input type="radio" id="no" value="no" name="newIn">
+                <label for="no">No</label>
+            </div>    
         </div>
         <div class="button_np">
             <button type="submit" class="button_new_product">Agregar el producto</button>

@@ -30,7 +30,14 @@ module.exports = function(sequelize, dataTypes){
         },
         cantidad_stock: {
             type: dataTypes.INTEGER
+        },
+        imagen: {
+            type: dataTypes.STRING(60)
+        },
+        nuevoIngreso: {
+            type: dataTypes.STRING(2)
         }
+
     }
     let config = {
         tableName: "productos",
