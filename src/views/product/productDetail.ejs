@@ -8,22 +8,24 @@
     <main>
         <div class="product_description">
             <div>
-                <img class="principal" src="/img/Foto_producto.png" alt="">
+                <img class="principal" src="/img/productsImage/<%= producto.imagen %>" alt="">
             </div>
             <div>
                 <div class="description">
                    
-                    <h2 class="product_name">Sweater <%= product.Nombre %> </h2> 
-                    <form class="form_delete" action="/products/delete/<%=product.id %>?_method=DELETE" method="POST">
+                    <h2 class="product_name"> <%= producto.producto %> </h2>
+                    <a href="/products/edit/<%= producto.id_productos %>"><button>Editar Producto</button></a> 
+                    <form class="form_delete" action="/products/delete/<%= producto.id_productos %>" method="POST">
                         <button type="submit" class="delete"><i class="fas fa-trash-alt"></i></button>
+                        
                     </form>
                     <div class="icons">
                         <i class="far fa-heart"></i>
                         <i class="fas fa-share-alt"></i>
                     </div>
                 </div>
-                <p class="price">$<%= product.Precio %></p>
-                <p class="description_product"><%= product.Descricion %></p>
+                <p class="price">$<%= producto.precio %></p>
+                <p class="description_product"><%= producto.descripcion %></p>
                 <p class="colores">COLORES</p>
                 <div class="square_colors">
                     <div class="black_square"></div>

@@ -10,6 +10,10 @@
             <label for="file"><h4>Seleccione la imagen del producto</h4></label>
             <input type="file"  class="choose_file" id="file" name="file" multiple accept=".jgp, .png">
         </div>
+        <div class="item">
+            <label for="name_product">Nombre del producto</label>
+            <input type="text" class="input" id="name_product" name="name_product" required>
+        </div>
         <div class="tipo_de_producto">
             <h4>Elija la categoría de producto</h4>
             <div class="unidad">
@@ -46,10 +50,6 @@
             </select>
         </div>
         <div class="item">
-            <label for="name_product">Nombre del producto</label>
-            <input type="text" class="input" id="name_product" name="name_product" required>
-        </div>
-        <div class="item">
             <label for="price_product">Precio</label>
             <input type="text" class="input" id="price_product" name="price_product" required>
         </div>
@@ -65,9 +65,9 @@
                     <option value="<%= talles[i].id_talles %>" >
                         <%= talles[i].talles %>
                     </option>
-                    <% } %>
-                </select>
-                <input type="number" class="talle_jean" name="quantity_product" id="quantity_product">
+                <% } %>
+            </select>
+            <input type="number" class="talle_jean" name="quantity_product" id="quantity_product">
         </div>
         <div>
             <p>Es un nuevo ingreso?</p>
@@ -89,3 +89,5 @@
 
 </body>
 </html>
+
+

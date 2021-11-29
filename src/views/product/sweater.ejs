@@ -1,1 +1,35 @@
-<h1>Sweaters</h1>
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head")%>
+
+<%- include("../partials/header")%>
+<body>
+    <main>
+        <div class="productList">
+            <% for (let i = 0; i < productos.length; i++) {
+                if(productos[i].idcategoria_producto == 3) {%>
+                    <a href="/" class="productLink">
+                        <div class="productItem">
+                            <div class="imageContainer">
+                                <img src="/img/productsImage/<%= productos[i].imagen %>">
+                                <% if(productos[i].nuevoIngreso == "si") {%>
+                                    <div class="nuevoIngreso">
+                                        <p>Nuevo ingreso</p>
+                                    </div>
+                                <% } %>
+                            </div>
+                            <div class="productItemText">
+                                <h3><%= productos[i].producto %></h3>
+                                <p><%= productos[i].descripcion%></p>
+                                <p>$<%= productos[i].precio %></p>
+                            </div>
+                        </div>
+                    </a>
+                <% }} %>
+        </div>
+    </main>
+
+<%- include("../partials/footer")%>
+
+</body>
+</html>

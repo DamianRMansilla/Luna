@@ -752,12 +752,13 @@ header{
     margin: 4vh 2vw;
 }
 
-.productItem{
+.productLink{
     box-sizing: border-box;
     width: 20%;
     margin: 2vw;
     padding: 1%;
-
+    text-decoration: none;
+    color: black;
 }
 
 .productItemText{

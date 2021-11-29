@@ -20,22 +20,111 @@ let productsController = {
             .catch(function (err) {
                 console.log("no se muestran los productos", err)});
         
-        //res.render(path.resolve(__dirname, "../views/product/products"))
+    },
+
+
+    detail: (req, res) =>{
+        db.Producto.findByPk(req.params.id, {
+            include: [{association: "marca"}, {association: "color"}, {association: "categoria"}, {association: "talles"}]
+        })
+            .then(function(producto){
+                res.render(path.resolve(__dirname, "../views/product/productDetail"), {producto})
+            })
+
+            .catch(function (err) {
+                console.log("no se muestra el producto", err)});
     },
 
 
     trousers: (req, res) => {
-        res.render(path.resolve(__dirname, "../views/product/trousers"))
+        listaProductos = db.Producto.findAll();
+        listadoMarcas = db.Marca.findAll();
+        listadoColores = db.Color.findAll();
+        listadoTalles = db.Talle.findAll();
+        listadoCategorias = db.Categoria.findAll()
+
+        Promise.all([listaProductos, listadoMarcas, listadoColores, listadoTalles, listadoCategorias])
+            .then(function([productos, marcas, colores, talles, categorias]){
+                return res.render(path.resolve(__dirname, "../views/product/trousers"), {productos, marcas, colores, talles, categorias})
+            })
+
+            .catch(function (err) {
+                console.log("no se muestran los productos", err)});
     },
+
+    trousersID: (req, res) => {
+    //     listaProductos = db.Producto.findAll()
+    //     listadoMarcas = db.Marca.findAll();
+    //     listadoColores = db.Color.findAll();
+    //     listadoTalles = db.Talle.findAll();
+    //     listadoCategorias = db.Categoria.findAll()
+
+    //     Promise.all([listaProductos, listadoMarcas, listadoColores, listadoTalles, listadoCategorias])
+    //     Promise.all([listaProductos])
+        
+    //     .then(function([listaProductos]){
+    //         for(let i = 0; i < listaProductos.length; i++){
+    //             res.send(listaProductos[i])
+    //             console.log(listaProductos[i])
+    //             if(listaProductos[i].idcategoria_producto == 1){
+    //                 db.Producto.findByPk(req.params.id)
+    //                     .then(function(trouser){
+    //                         res.render(path.resolve(__dirname, "../views/product/trousers"), {trouser})
+    //                     })        
+                    
+                
+    //         }
+    //     }}
+    //         )
+    //     .catch(function (err) {
+    //             console.log("no se muestran los productos", err)});
+
+
+     },
 
 
     tshirt: (req, res) => {
-        res.render(path.resolve(__dirname, "../views/product/tshirt"))
+        listaProductos = db.Producto.findAll();
+        listadoMarcas = db.Marca.findAll();
+        listadoColores = db.Color.findAll();
+        listadoTalles = db.Talle.findAll();
+        listadoCategorias = db.Categoria.findAll()
+
+        Promise.all([listaProductos, listadoMarcas, listadoColores, listadoTalles, listadoCategorias])
+            .then(function([productos, marcas, colores, talles, categorias]){
+                return res.render(path.resolve(__dirname, "../views/product/tshirt"), {productos, marcas, colores, talles, categorias})
+            })
+
+            .catch(function (err) {
+                console.log("no se muestran los productos", err)});
     },
 
+    tshirtID: (req, res) => {
+        res.render(path.resolve(__dirname, "../views/product/tshirt"))
+    },
+    
 
     sweater: (req, res) => {
-        res.render(path.resolve(__dirname, "../views/product/sweater"))
+        listaProductos = db.Producto.findAll();
+        listadoMarcas = db.Marca.findAll();
+        listadoColores = db.Color.findAll();
+        listadoTalles = db.Talle.findAll();
+        listadoCategorias = db.Categoria.findAll()
+
+        Promise.all([listaProductos, listadoMarcas, listadoColores, listadoTalles, listadoCategorias])
+            .then(function([productos, marcas, colores, talles, categorias]){
+                return res.render(path.resolve(__dirname, "../views/product/sweater"), {productos, marcas, colores, talles, categorias})
+            })
+
+            .catch(function (err) {
+                console.log("no se muestran los productos", err)});
+    },
+    
+    sweaterID: (req, res) => {
+        let productsDatabase = fs.readFileSync(path.resolve(__dirname, "../data/productsDatabase.json"), { encoding: "utf-8" });
+        products = JSON.parse(productsDatabase);
+        oneProduct = products.find(product => req.params.id == product.id);
+        res.render(path.resolve(__dirname, "../views/product/sweater_num.ejs"), {"product": oneProduct});
     },
     
     
@@ -51,6 +140,7 @@ let productsController = {
             })
     },
     
+
     create: (req, res) => {
         db.Producto.create({
             producto: req.body.name_product,
@@ -107,13 +197,6 @@ let productsController = {
     //     res.redirect("/products/new")
     },
 
-    sweaterID: (req, res) => {
-        let productsDatabase = fs.readFileSync(path.resolve(__dirname, "../data/productsDatabase.json"), { encoding: "utf-8" });
-        products = JSON.parse(productsDatabase);
-        oneProduct = products.find(product => req.params.id == product.id);
-        res.render(path.resolve(__dirname, "../views/product/sweater_num.ejs"), {"product": oneProduct});
-    },
-
 
     new_in: (req, res) => {
         res.render(path.resolve(__dirname, "../views/product/new_in"))
@@ -121,51 +204,93 @@ let productsController = {
 
 
     edit: (req, res) => {
-        let products = fs.readFileSync(path.resolve(__dirname, "../data/productsDatabase.json"), {encoding: "utf-8"})
-        products = JSON.parse(products)
-        let product = products.find(product => product.id == req.params.id);
+        let productID = req.params.id;
+        let productToEdit = db.Producto.findByPk(productID);
+        let listadoMarcas = db.Marca.findAll()
+        let listadoCategorias = db.Categoria.findAll()
+        let listadoColores = db.Color.findAll()
+        let listadoTalles = db.Talle.findAll()
 
-        res.render((path.resolve(__dirname, "../views/product/edit_product")), {product})
+        Promise.all([productToEdit, listadoMarcas, listadoCategorias, listadoColores, listadoTalles])
+            .then(function([product, marcas, categorias, colores, talles]){
+                res.render(path.resolve(__dirname, "../views/product/editProduct"), {productID, product, marcas, categorias, colores, talles})
+            })
+
+        // Metodo editar en JSON
+        // let products = fs.readFileSync(path.resolve(__dirname, "../data/productsDatabase.json"), {encoding: "utf-8"})
+        // products = JSON.parse(products)
+        // let product = products.find(product => product.id == req.params.id);
+
+        // res.render((path.resolve(__dirname, "../views/product/editProduct")), {product})
     }, 
 
     update: (req, res) => {
-        let idProducto = req.params.id
-        let readSweater = fs.readFileSync(path.resolve(__dirname, "../data/productsDatabase.json"), {encoding: "utf-8"})
-        let products = JSON.parse(readSweater)
-
-
-
-        products.forEach(product => {
-            if(product.id == idProducto){
-                product.Tipo_de_producto = req.body.producto;
-                product.Nombre = req.body.name_product;
-                product.Precio = req.body.price_product;
-                product.Descripcion = req.body.descript_product;
-                product.Talle_36 = req.body.talle_jean_36;
-                product.Talle_38 = req.body.talle_jean_38;
-                product.Talle_40 = req.body.talle_jean_40;
-                product.Talle_42 = req.body.talle_jean_42;
-                product.Talle_44 = req.body.talle_jean_44;
-                product.Talle_46 = req.body.talle_jean_46;
+        db.Producto.update({
+            producto: req.body.name_product,
+            idcategoria_producto: req.body.category_product,
+            idcolor: req.body.color_product,
+            idmarca: req.body.brand_product,
+            precio: req.body.price_product,
+            descripcion: req.body.descript_product,
+            idtalle: req.body.size_product,
+            cantidad_stock: req.body.quantity_product,
+            imagen: req.file.filename,
+            nuevoIngreso: req.body.newIn
+        } , {
+            where: {
+                id_productos: req.params.id
             }
         });
 
-        let newProducts = JSON.stringify(products, null, 4);
-        fs.writeFileSync(path.join(__dirname, "../data/productsDatabase.json"), newProducts);
+        res.redirect("/products/" + req.params.id)
 
-        res.redirect("/")
+        // Logica update en JSON:
+
+        // let idProducto = req.params.id
+        // let readSweater = fs.readFileSync(path.resolve(__dirname, "../data/productsDatabase.json"), {encoding: "utf-8"})
+        // let products = JSON.parse(readSweater)
+
+
+
+        // products.forEach(product => {
+        //     if(product.id == idProducto){
+        //         product.Tipo_de_producto = req.body.producto;
+        //         product.Nombre = req.body.name_product;
+        //         product.Precio = req.body.price_product;
+        //         product.Descripcion = req.body.descript_product;
+        //         product.Talle_36 = req.body.talle_jean_36;
+        //         product.Talle_38 = req.body.talle_jean_38;
+        //         product.Talle_40 = req.body.talle_jean_40;
+        //         product.Talle_42 = req.body.talle_jean_42;
+        //         product.Talle_44 = req.body.talle_jean_44;
+        //         product.Talle_46 = req.body.talle_jean_46;
+        //     }
+        // });
+
+        // let newProducts = JSON.stringify(products, null, 4);
+        // fs.writeFileSync(path.join(__dirname, "../data/productsDatabase.json"), newProducts);
+
+        // res.redirect("/")
     },
 
 
     delete: (req, res) => {
-        let products = fs.readFileSync(path.join(__dirname, "../data/productsDataBase.json"), { encoding: "utf-8" });
-        products = JSON.parse(products);
-        let newProducts = products.filter(product => product.id != req.params.id)
-        newProducts = JSON.stringify(newProducts, null, 4);
+        db.Producto.destroy({
+            where: {
+                id_productos: req.params.id
+            }
+        })
 
-        fs.writeFileSync(path.join(__dirname, "../data/productsDataBase.json"), newProducts);
+        res.redirect("/products")
+
+        // let products = fs.readFileSync(path.join(__dirname, "../data/productsDataBase.json"), { encoding: "utf-8" });
+        // products = JSON.parse(products);
+        // let newProducts = products.filter(product => product.id != req.params.id)
+        // newProducts = JSON.stringify(newProducts, null, 4);
+
+        // fs.writeFileSync(path.join(__dirname, "../data/productsDataBase.json"), newProducts);
         
-        res.redirect('/');
+        // res.redirect('/');
     },
 };
 
