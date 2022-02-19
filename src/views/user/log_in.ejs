@@ -9,20 +9,20 @@
 
         <h2 class="sessioninit">¡Hola! Ingresa tu usuario o correo electrónico</h2>
         <main class="main_login">
-            <form class="login" action="" method="POST">
+            <form class="login" action="/user/login" method="POST">
                 <div class="user">
                     <label for="emailLogin">Correo electrónico o usuario</label>
-                    <input type="email" class="fill_text" id="emailLogin" name="emailLogin" value="<%= locals.old && old.emailLogin ? old.emailLogin: '' %>">
-                    <% if (locals.errors && errors.emailLogin) { %>
+                    <input type="text" class="fill_text" id="emailLogin" name="emailLogin" value="<%= locals.old && old.emailLogin ? old.emailLogin: '' %>">
+                    <!--<% if (locals.errors && errors.emailLogin) { %>
                         <div class="errores"><%= errors.emailLogin.msg %></div>
-                    <% } %>
+                    <% } %>-->
                 </div>    
                 <div class="pass">
                     <label for="passwordLogin">Contraseña</label>
-                    <input type="password" class="fill_text" id="passwordLogin" name="passwordLogin">
-                    <% if (locals.errors && errors.passwordLogin) { %>
+                    <input type="text" class="fill_text" id="passwordLogin" name="passwordLogin">
+                    <!--<% if (locals.errors && errors.passwordLogin) { %>
                         <div class="errores"><%= errors.passwordLogin.msg %></div>
-                    <% } %>
+                    <% } %>-->
                 </div>
                 <div class="fillin">
                     <input type="checkbox" id="remember-me" name="rememberme">

@@ -32,7 +32,7 @@ module.exports = function(sequelize, dataTypes){
     let Carrito = sequelize.define(alias, cols, config);
 
     Carrito.associate = function(models){
-        Carrito.belongsTo(models.Cliente, {
+        Carrito.belongsTo(models.User, {
             as: "cliente",
             foreignKey: "idcarrito"
         })

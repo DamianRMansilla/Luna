@@ -56,8 +56,8 @@ router.get("/register", guestMiddleware, userControlador.register);
 router.post("/register", upload.single("userImage"), validaciones, userControlador.newUser);
 
 router.get("/login", guestMiddleware, userControlador.login);
-router.post ("/login", validacionesLogin, userControlador.connect);
-
+router.post ("/login", userControlador.connect);
+/*validacionesLogin,*/ 
 router.get("/check", function(req, res){
     if (req.session.usuarioLogueado == undefined){
         res.send("No estas logueado");
