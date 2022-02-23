@@ -13,16 +13,16 @@
                 <div class="user">
                     <label for="emailLogin">Correo electrónico o usuario</label>
                     <input type="text" class="fill_text" id="emailLogin" name="emailLogin" value="<%= locals.old && old.emailLogin ? old.emailLogin: '' %>">
-                    <!--<% if (locals.errors && errors.emailLogin) { %>
+                    <% if (locals.errors && errors.emailLogin) { %>
                         <div class="errores"><%= errors.emailLogin.msg %></div>
-                    <% } %>-->
+                    <% } %>
                 </div>    
                 <div class="pass">
                     <label for="passwordLogin">Contraseña</label>
                     <input type="text" class="fill_text" id="passwordLogin" name="passwordLogin">
-                    <!--<% if (locals.errors && errors.passwordLogin) { %>
+                    <!-- <% if (locals.errors && errors.passwordLogin) { %>
                         <div class="errores"><%= errors.passwordLogin.msg %></div>
-                    <% } %>-->
+                    <% } %> -->
                 </div>
                 <div class="fillin">
                     <input type="checkbox" id="remember-me" name="rememberme">

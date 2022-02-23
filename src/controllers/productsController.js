@@ -151,7 +151,7 @@ let productsController = {
             descripcion: req.body.descript_product,
             idtalle: req.body.size_product,
             cantidad_stock: req.body.quantity_product,
-            imagen: req.file.filename,
+            imagen: req.files.filename,
             nuevoIngreso: req.body.newIn
         })
 

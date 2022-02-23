@@ -94,9 +94,7 @@ let userController = {
 
     // Ruta que procesa login
     connect: (req, res) => {
-
         //let errors = validationResult(req);
-
         //if(errors.isEmpty()){
             let user;
             let userToBeLogged = db.User.findAll()
@@ -110,11 +108,10 @@ let userController = {
                             } else{console.log(req.body.passwordLogin)}
                       }
                      }
-                    // if(user == undefined){ console.log("usuario indefinido")
-                    //     // return res.render(path.resolve(__dirname, "../views/user/log_in"),
-                    //     // {errors: { emailLogin: { msg: 'Las credenciales son inválidas'}}}
-                    //     // )
-                    // }
+                    if(user == undefined){ console.log("usuario indefinido")
+                        return res.render(path.resolve(__dirname, "../views/user/log_in"),
+                        {errors: { emailLogin: { msg: 'Las credenciales son inválidas'}}}
+                        )}
 
                     req.session.userLogged = user
 
@@ -122,78 +119,67 @@ let userController = {
                         res.cookie("rememberme", userToBeLogged.email, {maxAge:10*10*60000})
                     }
 
-                    res.redirect(path.resolve(__dirname, "../views/user/profileUser"))
+                    res.redirect("/user/profile")
                 });
-
 
         // } else {
         //     res.render(path.resolve(__dirname, "../views/user/log_in"), {
         //         errors: errors.mapped(),
         //         oldData: req.body
-        //     });
-        // }
+        //     });}
 
-        // Metodo con JSON
-        // let userEmpty = req.body.emailLogin
+    }
+    // Metodo con JSON
+    // let userEmpty = req.body.emailLogin
+    // let userToLogin = db.User.findByField("Mail", req.body.emailLogin);
+    // let errors = validationResult(req);
 
-        // let userToLogin = db.User.findByField("Mail", req.body.emailLogin);
+    // Si no se carga un correo electronico
+    // if(userEmpty == ""){
+    //     res.render(path.resolve(__dirname, "../views/user/log_in.ejs"), { errors: errors.mapped(), old: req.body })}
 
-        // let errors = validationResult(req);
+    // Si el correo electronico cargado no se encuentra en nuestra base de datos
+    // if(!userToLogin){
+    //     return res.render(path.resolve(__dirname, "../views/user/log_in.ejs"), {
+    //         errors: {
+    //             emailLogin: { msg: "Correo electrónico no registrado en nuestra base de datos"}
+    //         }})}
 
-        // // Si no se carga un correo electronico
-        // if(userEmpty == ""){
-        //     res.render(path.resolve(__dirname, "../views/user/log_in.ejs"), { errors: errors.mapped(), old: req.body })}
+    // // Si no hay errores de validacion
+    // if (errors.isEmpty()){
+    //     let archivoUsuario = fs.readFileSync(path.join(__dirname, "../data/usersDB.json"), {encoding: "utf-8"})
+    //     let usuarios;
 
-        // // Si el correo electronico cargado no se encuentra en nuestra base de datos
-        // if(!userToLogin){
-        //     return res.render(path.resolve(__dirname, "../views/user/log_in.ejs"), {
-        //         errors: {
-        //             emailLogin: { msg: "Correo electrónico no registrado en nuestra base de datos"}
-        //         }
-        //     })
-        // }
+    //     if (archivoUsuario == "") {
+    //         usuarios = []; } 
+    //     else {
+    //         usuarios = JSON.parse(archivoUsuario);
+    //     }
 
-        // // Si no hay errores de validacion
-        // if (errors.isEmpty()){
-        //     let archivoUsuario = fs.readFileSync(path.join(__dirname, "../data/usersDB.json"), {encoding: "utf-8"})
-        //     let usuarios;
+    //     for (let i = 0; i < usuarios.length; i++) {
+    //         if (usuarios[i].Mail == req.body.emailLogin){
+    //             if (bcrypt.compareSync(req.body.passwordLogin, usuarios[i].Contraseña)){
+    //                 usuarioALoguearse = usuarios[i];
+    //                 break;
+    //             }
+    //             else {
+    //                 return res.render(path.resolve(__dirname, "../views/user/log_in.ejs"), {
+    //                     errors: {
+    //                         emailLogin: { msg: "Credenciales invalidas"}
+    //                     }})}}}
+    //     if(usuarioALoguearse == undefined) {
+    //         return res.render(path.join(__dirname, "../views/user/log_in.ejs"));} 
+    //     else {     
+    //         //delete usuarioALoguearse.Contraseña   
+    //         req.session.usuarioLogueado = usuarioALoguearse;
 
-        //     if (archivoUsuario == "") {
-        //         usuarios = []; } 
-        //     else {
-        //         usuarios = JSON.parse(archivoUsuario);
-        //     }
-
-
-            
-        //     for (let i = 0; i < usuarios.length; i++) {
-        //         if (usuarios[i].Mail == req.body.emailLogin){
-        //             if (bcrypt.compareSync(req.body.passwordLogin, usuarios[i].Contraseña)){
-        //                 usuarioALoguearse = usuarios[i];
-        //                 break;
-        //             }
-        //             else {
-        //                 return res.render(path.resolve(__dirname, "../views/user/log_in.ejs"), {
-        //                     errors: {
-        //                         emailLogin: { msg: "Credenciales invalidas"}
-        //                     }
-        //                 })
-        //             }
-        //         }
-        //     }
-        //     if(usuarioALoguearse == undefined) {
-        //         return res.render(path.join(__dirname, "../views/user/log_in.ejs"));} 
-        //     else {     
-        //         //delete usuarioALoguearse.Contraseña   
-        //         req.session.usuarioLogueado = usuarioALoguearse;
-
-        //         if(req.body.rememberme != undefined){
-        //             res.cookie("rememberme", usuarioALoguearse.Mail, {maxAge: 60000})
-        //         }
-        //         res.redirect("/user/profile")
-        //     }} 
-        // //else {res.render(path.resolve(__dirname, "../views/user/log_in.ejs"), { errors: errors.mapped(), old: req.body })}
-    },
+    //         if(req.body.rememberme != undefined){
+    //             res.cookie("rememberme", usuarioALoguearse.Mail, {maxAge: 60000})
+    //         }
+    //         res.redirect("/user/profile")
+    //     }} 
+    // //else {res.render(path.resolve(__dirname, "../views/user/log_in.ejs"), { errors: errors.mapped(), old: req.body })}
+    ,
 
     // Ruta que muestra edicion
     edit: (req, res) =>{

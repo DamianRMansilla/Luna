@@ -1,41 +1,75 @@
 <header>
-    
-    <div class="logo">
-        <img src="/img/Logo-Luna.png" alt="">
-    </div>
-    
-    <div class="no-logo">
-        <form class="busqueda" action="/search" method="GET">
-            <input type="text" name="busqueda" >
-            <button value="submit"><i class="fas fa-search"></i></button>
-        </form>
-
-        <div class="big-big-menu">
-            <nav class="big-menu">
-                <ul class="menu">
-                    <li><a class="menu_option" href="../">INICIO</a></li>
-                    <li><a class="menu_option" href="../products">PRODUCTOS</a></li>
-                    <li><a class="menu_option" href="../products/new_in">NOVEDADES</a></li>
-                    <li><a class="menu_option" href="../contact_us">CONTACTO</a></li>
-                </ul>
-
-                <div class="header-profile">
-                    <% if (locals.isLogged) {%>
-
-                    <img class="avatar-header" src="/img/profileImg/<%= locals.usuarioLogueado.Avatar %>" alt="">
-                    <form class="form-header" action="">
-                        <select name="select-header" id="">
-                            <option value=""><a href="../user/profileUser.ejs"></a>Perfil</a></option>
-                            <option value="">Salir</option>
-                        </select>
-                    </form>
-                    <% } else { %>
-                        <ul class="ingreso">
-                            <li> <a href="../user/login"><i class="fas fa-user"></i> Ingresar</a> </li>
-                        </ul>
-                    <% } %>
-                </div>
-            </nav>
+    <div class="container">
+        <div class="item-b">
+            <div class="burger-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="logo">
+                <img src="/img/Logo-Luna.png" alt="">
+            </div>
         </div>
-    </div>  
+        <div class="item-c">
+            <div class="logo-mobile">
+                <img src="/img/Logo-Luna.png" alt="">
+            </div>
+            <div class="big-big-menu">
+                <nav class="big-menu">
+                    <ul class="menu">
+                        <a class="menu_option" href="../"><li class="menu-li">INICIO</li></a>
+                        <a class="menu_option products" href="../products"><li class="menu-li products">PRODUCTOS</li></a>
+                        <a class="menu_option" href="../products/new_in"><li class="menu-li">NOVEDADES</li></a>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="item-d">
+            <div class="header-profile">
+                <% if (locals.isLogged) {%>
+                    <div class="ingreso">
+                        <img class="avatar-header" src="/img/profileImg/<%= locals.userLogged.avatar %>" alt="">
+                        <form action="" class="search">
+                            <input class="search-input" type="text">
+                            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                        <a href="../user/profile"><i class="fa-solid fa-user"></i></a>
+                        <a href=""><i class="fa-solid fa-heart"></i></a>
+                        <a href=""><i class="fa-solid fa-bag-shopping"></i></a>
+                        <a href=""><i class="fa-solid fa-right-from-bracket"></i></a>
+                    </div>
+                    <div class="small-menu">
+                        <a href="../user/profile"><i class="fa-solid fa-user"></i></a>
+                        <a href=""><i class="fa-solid fa-heart"></i></a>
+                        <a href=""><i class="fa-solid fa-bag-shopping"></i></a>
+                        <a href=""><i class="fa-solid fa-right-from-bracket"></i></a>
+                    </div>
+                    <% } else { %>
+                    <div class="ingreso">
+                        <form action="" class="search">
+                            <input class="search-input" type="text">
+                            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                        <a href=""><i class="fa-solid fa-heart"></i></a>
+                        <a href=""><i class="fa-solid fa-bag-shopping"></i></a>
+                        <a href="../user/login"><i class="fa-solid fa-user"></i></a>
+                    </div>
+                    <div class="small-menu">
+                        <a href=""><i class="fa-solid fa-heart"></i></a>
+                        <a href=""><i class="fa-solid fa-bag-shopping"></i></a>
+                        <a href="../user/login"><i class="fa-solid fa-user"></i></a>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <div class="drop-down">
+        <ul class="drop-down-ul">
+            <a href="" class="drop-down-a"><li class="drop-down-li">Jeans</li></a>
+            <a href="" class="drop-down-a"><li class="drop-down-li">Remeras</li></a>
+            <a href="" class="drop-down-a"><li class="drop-down-li">Camisas</li></a>
+            <a href="" class="drop-down-a"><li class="drop-down-li">Shorts</li></a>
+            <a href="" class="drop-down-a"><li class="drop-down-li">Sweaters</li></a>
+            <a href="" class="drop-down-a"><li class="drop-down-li">Polleras</li></a>
+        </ul>
+    </div>
+    <script src="/js/drop-down.js"></script>
 </header>
