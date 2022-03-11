@@ -37,7 +37,7 @@ router.get("/sweater/:id?", controladorProductos.sweaterID)
 router.get("/new_in", controladorProductos.new_in)
 
 router.get("/new", controladorProductos.new) // Vista de creacion de producto
-router.post("/new", fileUpload.array("file"), controladorProductos.create) // Logica de creacion de producto
+router.post("/new", fileUpload.single("file"), controladorProductos.create) // Logica de creacion de producto
 
 router.get("/edit/:id", controladorProductos.edit) // Vista de edicion de producto
 router.put("/edit/:id", fileUpload.single("file"), controladorProductos.update) // Logica de edicion de producto

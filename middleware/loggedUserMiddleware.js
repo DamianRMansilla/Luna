@@ -1,4 +1,3 @@
-// let db = require("../../database/models");
 let db = require("../database/models")
 
 function loggedUserMiddleware (req, res, next) {

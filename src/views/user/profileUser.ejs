@@ -4,18 +4,21 @@
 
 <%- include("../partials/header")%>
 <body>
-
-    perfil de usuario
-<h1 class="saludo">Hola <%= user.name %> !!</h1>
-
-<img class="avatar" src="/img/profileImg/<%= user.avatar%>" alt="">
-
-<form action="/user/delete/<%= user.id_user %>?_method=DELETE" method="POST">
-    <button type="submit">Eliminar Usuario</button>
-</form>  
-<form action="/user/logout" method="GET">
-    <button type="submit">Logout</button>
-</form> 
+    <main class="profile-main">
+        <div class="profile-buttons">
+            <form action="/user/delete/<%= user.id_user %>?_method=DELETE" method="POST">
+                <button class="profile-button" type="submit">Eliminar Usuario</button>
+            </form>  
+            <form action="/user/logout" method="GET">
+                <button class="profile-button button-under" type="submit">Logout</button>
+            </form> 
+        </div>
+        <div class="user-info">
+            <h1 class="saludo">Hola <%= user.name %> !!</h1>
+            
+            <img class="avatar" src="/img/profileImg/<%= user.avatar%>" alt="">
+        </div>
+    </main>
 
 <%- include("../partials/footer")%>
 

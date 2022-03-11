@@ -105,7 +105,7 @@ let userController = {
                                 userToBeLogged = users[i];
                                 user = userToBeLogged;
                                 break;
-                            } else{console.log(req.body.passwordLogin)}
+                            } /*else{console.log(req.body.passwordLogin)}*/
                       }
                      }
                     if(user == undefined){ console.log("usuario indefinido")
@@ -267,7 +267,7 @@ let userController = {
     logout: (req, res) => {
         res.clearCookie("rememberme");
         req.session.destroy();
-        return res.redirect("/")
+        res.redirect("/")
     }
 
 } 

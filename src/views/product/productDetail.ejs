@@ -4,65 +4,77 @@
 
 <%- include("../partials/header")%>
 <body>
-
-    <main>
+    <script src="/js/quantity.js"></script>
+    <main class="main-product-detail">
+        <div class="editProduct">
+            <a class="editLink" href="/products/edit/<%= producto.id_productos %>"><button class="editButton">Editar Producto</button></a> 
+            <form class="form_delete" action="/products/delete/<%= producto.id_productos %>" method="POST">
+                <button type="submit" class="delete"><i class="fas fa-trash-alt"></i></button>
+            </form>
+        </div>
         <div class="product_description">
-            <div>
+            <div class="imgdiv">
                 <img class="principal" src="/img/productsImage/<%= producto.imagen %>" alt="">
             </div>
             <div>
                 <div class="description">
-                   
-                    <h2 class="product_name"> <%= producto.producto %> </h2>
-                    <a href="/products/edit/<%= producto.id_productos %>"><button>Editar Producto</button></a> 
-                    <form class="form_delete" action="/products/delete/<%= producto.id_productos %>" method="POST">
-                        <button type="submit" class="delete"><i class="fas fa-trash-alt"></i></button>
-                        
-                    </form>
-                    <div class="icons">
-                        <i class="far fa-heart"></i>
-                        <i class="fas fa-share-alt"></i>
-                    </div>
+                    <h2 class="product_name"> <%= producto.producto %><button class=""><i class="far fa-heart"></i></button></i></i></h2>
+                    <p class="description_product"><%= producto.descripcion %></p>
                 </div>
                 <p class="price">$<%= producto.precio %></p>
-                <p class="description_product"><%= producto.descripcion %></p>
-                <p class="colores">COLORES</p>
+                <!-- <p class="colores">COLORES</p>
                 <div class="square_colors">
                     <div class="black_square"></div>
                     <div class="gray_square"></div>
                     <div class="pink_square"></div>
                     <div class="red_square"></div>
                     <div class="white_square"></div>
-                </div>
+                </div> -->
                 <form class="customize" action="" method="GET">
-                    <div class="talle_product">    
-                        <label for="talle">TALLE</label>
-                        <select class="talle" name="talle" id="talle">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
+                    <div class="talle_product">
+                        <% if (producto.idcategoria_producto == 1) { %>
+                            <label for="talle1" value="34">34</label>
+                            <input type="checkbox" id="talle1">
+                            <label for="talle2" value="36">36</label>
+                            <input type="checkbox" id="talle2">
+                            <label for="talle3" value="38">38</label>
+                            <input type="checkbox" id="talle3">
+                            <label for="talle4" value="40">40</label>
+                            <input type="checkbox" id="talle4">
+                            <label for="talle5" value="42">42</label>
+                            <input type="checkbox" id="talle5">
+                            <label for="talle6" value="44">44</label>
+                            <input type="checkbox" id="talle6">
+                            <% } %>  
                     </div>
                     <div class="cantidad_product">
-                        <label for="cantidad">CANTIDAD</label>
-                        <select class="cantidad" name="cantidad" id="cantidad">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                        </select>
+                        <button class="quantityButton" type="button" onclick="totalClick(-1)">-</button>
+                        <p id="quantity">1</p>
+                        <button class="quantityButton" type="button" onclick="totalClick(1)">+</button>
                     </div>
                         <button class="agregar_carrito">AGREGAR AL CARRITO</button>
                 </form>
-
+                <div class="info info-detail">
+                    <a href="" class="info-link info-link-detail">
+                        <div class="info_div info_div_detail">
+                            <i class="fa-solid fa-box"></i><p class="title">ENVÍOS A TODO EL PAIS</p>
+                        </div>
+                    </a>
+                    <a href="" class="info-link info-link-detail">
+                        <div class="info_div info_div_detail">
+                            <i class="fa-solid fa-arrows-rotate"></i><p class="title">CAMBIOS Y <br> DEVOLUCIONES</p>
+                        </div>
+                    </a>
+                    <a href="" class="info-link info-link-detail">
+                        <div class="info_div info_div_detail">
+                            <i class="fa-solid fa-credit-card"></i><p class="title">MEDIOS DE PAGO</p>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </main>
-
+    <div>Tambien puede interesarte</div>
 <%- include("../partials/footer")%>
 
 </body>

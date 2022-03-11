@@ -25,7 +25,8 @@ let productsController = {
 
     detail: (req, res) =>{
         db.Producto.findByPk(req.params.id, {
-            include: [{association: "marca"}, {association: "color"}, {association: "categoria"}, {association: "talles"}]
+            include: [{association: "marca"}, {association: "color"}, {association: "categoria"}, {association: "talle1"}, 
+            {association: "talle2"}, {association: "talle3"}, {association: "talle4"}, {association: "talle5"}, {association: "talle6"}]
         })
             .then(function(producto){
                 res.render(path.resolve(__dirname, "../views/product/productDetail"), {producto})
@@ -149,9 +150,19 @@ let productsController = {
             idmarca: req.body.brand_product,
             precio: req.body.price_product,
             descripcion: req.body.descript_product,
-            idtalle: req.body.size_product,
-            cantidad_stock: req.body.quantity_product,
-            imagen: req.files.filename,
+            idtalle1: req.body.size_product1,
+            idtalle2: req.body.size_product2,
+            idtalle3: req.body.size_product3,
+            idtalle4: req.body.size_product4,
+            idtalle5: req.body.size_product5,
+            idtalle6: req.body.size_product6,
+            cantidad_stock1: req.body.quantity_product1,
+            cantidad_stock2: req.body.quantity_product2,
+            cantidad_stock3: req.body.quantity_product3,
+            cantidad_stock4: req.body.quantity_product4,
+            cantidad_stock5: req.body.quantity_product5,
+            cantidad_stock6: req.body.quantity_product6,
+            imagen: req.file.filename,
             nuevoIngreso: req.body.newIn
         })
 

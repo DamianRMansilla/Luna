@@ -22,13 +22,43 @@ module.exports = function(sequelize, dataTypes){
         descripcion: {
             type: dataTypes.STRING(255)
         },
-        idtalle: {
-            type: dataTypes.INTEGER
-        },
         idcategoria_producto: {
             type: dataTypes.INTEGER
         },
-        cantidad_stock: {
+        idtalle1: {
+            type: dataTypes.INTEGER
+        },
+        idtalle2: {
+            type: dataTypes.INTEGER
+        },
+        idtalle3: {
+            type: dataTypes.INTEGER
+        },
+        idtalle4: {
+            type: dataTypes.INTEGER
+        },
+        idtalle5: {
+            type: dataTypes.INTEGER
+        },
+        idtalle6: {
+            type: dataTypes.INTEGER
+        },
+        cantidad_stock1: {
+            type: dataTypes.INTEGER
+        },
+        cantidad_stock2: {
+            type: dataTypes.INTEGER
+        },
+        cantidad_stock3: {
+            type: dataTypes.INTEGER
+        },
+        cantidad_stock4: {
+            type: dataTypes.INTEGER
+        },
+        cantidad_stock5: {
+            type: dataTypes.INTEGER
+        },
+        cantidad_stock6: {
             type: dataTypes.INTEGER
         },
         imagen: {
@@ -63,8 +93,28 @@ module.exports = function(sequelize, dataTypes){
         })
 
         Producto.belongsTo(models.Talle, {
-            as: "talles",
-            foreignKey:"idtalle"
+            as: "talle1",
+            foreignKey:"idtalle1"
+        })
+        Producto.belongsTo(models.Talle, {
+            as: "talle2",
+            foreignKey:"idtalle2"
+        })
+        Producto.belongsTo(models.Talle, {
+            as: "talle3",
+            foreignKey:"idtalle3"
+        })
+        Producto.belongsTo(models.Talle, {
+            as: "talle4",
+            foreignKey:"idtalle4"
+        })
+        Producto.belongsTo(models.Talle, {
+            as: "talle5",
+            foreignKey:"idtalle5"
+        })
+        Producto.belongsTo(models.Talle, {
+            as: "talle6",
+            foreignKey:"idtalle6"
         })
 
         Producto.hasMany(models.Carrito, {
