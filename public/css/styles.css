@@ -1271,3 +1271,147 @@ a{
         margin-right: 5vw;
     }
 }
+
+
+/*---------------- Configuracion busqueda ----------------------- */
+
+.search-header{
+    width: 80vw;
+    margin: 3vh 0 0 2vw;
+}
+
+.empty-search{
+    width: 90vw;
+}
+
+.empty-search p{
+    width: 90vw;
+}
+
+
+/*----------------------------------- Configuracion cart ------------------------------------*/
+
+.cart-main{
+    display: flex;
+    box-sizing: border-box;
+    width: 85vw;
+    margin: 0 auto;
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
+}
+
+.cart-aside{
+    margin-top: 10vh;
+    box-sizing: border-box;
+    padding: 1vw;
+    width: 25vw;
+    height: 30vh;
+    margin-right: 3vw;
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
+}
+
+.cart-product-description-price{
+    display: flex;
+}
+
+.cart-product{
+    display: flex;
+    box-sizing: border-box;
+    padding: 2vw 0;
+    border-bottom: 1px solid rgba(120, 120, 190, 0.411);
+}
+
+.cart-price{
+    width: 7vw;
+    box-sizing: border-box;
+    padding: 1vw 0;
+    font-weight: 700;
+}
+
+.cart-image{
+    width: 12vw;
+}
+
+.cart-section-product{
+    box-sizing: border-box;
+    padding: 3vw;
+}
+
+.cart-product-description{
+    box-sizing: border-box;
+    padding: 1vw 2vw;
+}
+
+.cart-product-description h3{
+    width: 100%;
+}
+
+.cart-product-description p{
+    width: 100%;
+}
+
+.cart-settings{
+    display: flex;
+    box-sizing: border-box;
+    padding: 1vw 2vw;
+}
+
+.cart-product-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cart-subtotal{
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding-top: 2vh;
+}
+
+.cart-expenses{
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 2vh 0;
+    border-bottom: 1px solid rgba(120, 120, 190, 0.411);
+}
+
+.cart-total{
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding-top: 2vh;
+}
+
+.cart-amount{
+    width: 50%;
+    text-align: right;
+}
+
+.discount{
+    padding: 1vh 0;
+}
+
+.buy-button{
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
+    color: white;
+    font-weight: 700;
+    margin-top: 2vh;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border: 2px solid rgb(120, 120, 190);
+    background-color: rgba(120, 120, 190, 0.658);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+    line-height: 1rem;
+    font-size: 1rem;
+}
+
+.buy-button:hover{
+    border-color: rgb(120, 120, 190);
+    background-color: white;
+    color: rgba(120, 120, 190);
+    font-weight: 700;
+}

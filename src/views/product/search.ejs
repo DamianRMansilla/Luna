@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head")%>
+
+<body>
+    <%- include("../partials/header")%>
+    <main>
+        <section>
+            <h2 class="search-header"> Resultados de Busqueda para "<%= searched %>" </h2>
+    
+            <div class="productList">
+                <% if(searchedProducts == ""){ %>
+                    <div class="empty-search">
+                        <p> No se encontraron resultados para tu busqueda </p>
+                    </div>
+                <% } else { %>
+                <% for( let i = 0; i< searchedProducts.length; i++ ) { %>
+                    <a href="/products/<%= searchedProducts[i].id_productos%>" class="productLink">
+                        <div class="productItem">
+                            <div class="imageContainer">
+                                <img src="/img/productsImage/<%= searchedProducts[i].imagen %>">
+                                <% if(searchedProducts[i].nuevoIngreso == "si") {%>
+                                <div class="nuevoIngreso">
+                                    <p>Nuevo ingreso</p>
+                                </div>
+                                <% } %>
+                                <div class="add-like">
+                                    <button><i class="fa-solid fa-heart heart-product"></i></button>
+                                </div>
+                            </div>
+                            <div class="productItemText">
+                                <h3><%= searchedProducts[i].producto %></h3>
+                                <p><%= searchedProducts[i].descripcion%></p>
+                                <p>$<%= searchedProducts[i].precio %></p>
+                            </div>
+                        </div>
+                    </a>       
+                <% }}%>
+            </div>
+        </section>
+    </main>
+
+<%- include("../partials/footer")%>
+
+</body>
+</html>

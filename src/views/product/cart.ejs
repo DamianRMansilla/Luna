@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head")%>
+
+<%- include("../partials/header")%>
+<body>
+
+    <main class="cart-main">
+        <section class="cart-section-product">
+            <h1>Cesta</h1>
+            <div class="cart-product">
+                <img src="/img/Ayle.jpg" alt="" class="cart-image">
+                <div class="cart-product-info">
+                    <div class="cart-product-description-price">
+                        <div class="cart-product-description">
+                            <h3>Jean Ayle</h3>
+                            <p>Descripcion - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium beatae harum veritatis, maxime ut necessitatibus architecto debitis, fuga iste doloribus consequatur ex? Ab autem earum nostrum eum? Recusandae, cum eius.</p>
+                            <p>Talle</p>
+                            <p>Cantidad</p>
+                        </div>
+                        <p class="cart-price">100 €</p>
+                    </div>
+                    <div class="cart-settings">
+                        <a href=""><p>Eliminar</p></a>
+                        <a href=""><p>Dejar en favoritos</p></a>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-product">
+                <img src="/img/Ayle.jpg" alt="" class="cart-image">
+                <div class="cart-product-info">
+                    <div class="cart-product-description-price">
+                        <div class="cart-product-description">
+                            <h3>Jean Ayle</h3>
+                            <p>Descripcion - Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium beatae harum veritatis, maxime ut necessitatibus architecto debitis, fuga iste doloribus consequatur ex? Ab autem earum nostrum eum? Recusandae, cum eius.</p>
+                            <p>Talle</p>
+                            <p>Cantidad</p>
+                        </div>
+                        <p class="cart-price">100 €</p>
+                    </div>
+                    <div class="cart-settings">
+                        <a href=""><p>Eliminar</p></a>
+                        <a href=""><p>Dejar en favoritos</p></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <aside class="cart-aside">
+            <h3>Resumen</h3>
+            <p class="discount">¿Tienes un codigo de descuento?</p>
+            <div class="cart-subtotal">
+                <p>Subtotal</p>
+                <p class="cart-amount">200€</p>
+            </div>
+            <div class="cart-expenses">
+                <p>Gastos de envio y gestion</p>
+                <p class="cart-amount">200€</p>
+            </div>
+            <div class="cart-expenses">
+                <p>Total</p>
+                <p class="cart-amount">400€</p>
+            </div>
+            <button class="buy-button" type="submit">REALIZAR LA COMPRA</button>
+        </aside>
+    </main>
+
+<%- include("../partials/footer")%>
+
+</body>
+</html>

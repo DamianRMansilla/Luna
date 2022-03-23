@@ -42,8 +42,13 @@ router.post("/new", fileUpload.single("file"), controladorProductos.create) // L
 router.get("/edit/:id", controladorProductos.edit) // Vista de edicion de producto
 router.put("/edit/:id", fileUpload.single("file"), controladorProductos.update) // Logica de edicion de producto
 
+router.get("/cart", controladorProductos.cart)
+
 router.post("/delete/:id", controladorProductos.delete)
 
+router.get("/search", controladorProductos.search)
+
 router.get("/:id", controladorProductos.detail)
+
 
 module.exports = router

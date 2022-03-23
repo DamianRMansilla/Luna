@@ -209,8 +209,20 @@ let productsController = {
     },
 
 
-    new_in: (req, res) => {
-        res.render(path.resolve(__dirname, "../views/product/new_in"))
+    new_in: (req, res) => {        
+        listaProductos = db.Producto.findAll();
+        listadoMarcas = db.Marca.findAll();
+        listadoColores = db.Color.findAll();
+        listadoTalles = db.Talle.findAll();
+        listadoCategorias = db.Categoria.findAll()
+
+        Promise.all([listaProductos, listadoMarcas, listadoColores, listadoTalles, listadoCategorias])
+            .then(function([productos, marcas, colores, talles, categorias]){
+                return res.render(path.resolve(__dirname, "../views/product/new_in"), {productos, marcas, colores, talles, categorias})
+            })
+
+            .catch(function (err) {
+                console.log("no se muestran los productos", err)});
     },
 
 
@@ -303,6 +315,38 @@ let productsController = {
         
         // res.redirect('/');
     },
+    search: (req, res) => {
+        let searched = req.query.search;
+        let searchedProducts = []
+
+        listaProductos = db.Producto.findAll();
+        listadoMarcas = db.Marca.findAll();
+        listadoColores = db.Color.findAll();
+        listadoTalles = db.Talle.findAll();
+        listadoCategorias = db.Categoria.findAll()
+
+        Promise.all([listaProductos, listadoMarcas, listadoColores, listadoTalles, listadoCategorias])
+        .then(function([productos, marcas, colores, talles, categorias]){
+            for(let i = 0; i < productos.length; i++){
+                if (productos[i].producto.toLowerCase().includes(searched.toLowerCase())){
+                    searchedProducts.push(productos[i])
+                }};  
+
+                res.render(path.resolve(__dirname, "../views/product/search"),{productos, marcas, colores, talles, categorias, searchedProducts, searched})
+        })
+    },
+
+    cart: (req, res) => {
+        listaProductos = db.Producto.findAll();
+        listadoMarcas = db.Marca.findAll();
+        listadoColores = db.Color.findAll();
+        listadoTalles = db.Talle.findAll();
+        listadoCategorias = db.Categoria.findAll()
+
+        Promise.all([listaProductos, listadoMarcas, listadoColores, listadoTalles, listadoCategorias])
+            .then(function([productos, marcas, colores, talles, categorias]){
+                return res.render(path.resolve(__dirname, "../views/product/cart"), {productos, marcas, colores, talles, categorias})
+            })},
 };
 
 

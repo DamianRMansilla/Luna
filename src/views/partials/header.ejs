@@ -27,34 +27,34 @@
                 <% if (locals.isLogged) {%>
                     <div class="ingreso">
                         <img class="avatar-header" src="/img/profileImg/<%= locals.userLogged.avatar %>" alt="">
-                        <form action="" class="search">
-                            <input class="search-input" type="text">
+                        <form action="/products/search" class="search" method="GET">
+                            <input class="search-input" type="text" name="search">
                             <button><i class="fa-solid fa-magnifying-glass"></i></button>
                         </form>
                         <a href="../user/profile"><i class="fa-solid fa-user"></i></a>
                         <a href=""><i class="fa-solid fa-heart"></i></a>
-                        <a href=""><i class="fa-solid fa-bag-shopping"></i></a>
+                        <a href="../products/cart"><i class="fa-solid fa-bag-shopping"></i></a>
                         <a href=""><i class="fa-solid fa-right-from-bracket"></i></a>
                     </div>
                     <div class="small-menu">
                         <a href="../user/profile"><i class="fa-solid fa-user"></i></a>
                         <a href=""><i class="fa-solid fa-heart liked"></i></a>
-                        <a href=""><i class="fa-solid fa-bag-shopping"></i></a>
+                        <a href="../products/cart"><i class="fa-solid fa-bag-shopping"></i></a>
                         <a href=""><i class="fa-solid fa-right-from-bracket"></i></a>
                     </div>
                     <% } else { %>
                     <div class="ingreso">
-                        <form action="" class="search">
-                            <input class="search-input" type="text">
+                        <form action="/products/search" class="search" method="GET">
+                            <input class="search-input" type="text" name="search">
                             <button><i class="fa-solid fa-magnifying-glass"></i></button>
                         </form>
                         <a href=""><i class="fa-solid fa-heart liked"></i></a>
-                        <a href=""><i class="fa-solid fa-bag-shopping"></i></a>
+                        <a href="../products/cart"><i class="fa-solid fa-bag-shopping"></i></a>
                         <a href="../user/login"><i class="fa-solid fa-user"></i></a>
                     </div>
                     <div class="small-menu">
                         <a href=""><i class="fa-solid fa-heart"></i></a>
-                        <a href=""><i class="fa-solid fa-bag-shopping"></i></a>
+                        <a href="../products/cart"><i class="fa-solid fa-bag-shopping"></i></a>
                         <a href="../user/login"><i class="fa-solid fa-user"></i></a>
                     </div>
                 <% } %>
@@ -63,11 +63,11 @@
     </div>
     <div class="drop-down">
         <ul class="drop-down-ul">
-            <a href="" class="drop-down-a"><li class="drop-down-li">Jeans</li></a>
-            <a href="" class="drop-down-a"><li class="drop-down-li">Remeras</li></a>
+            <a href="../products/trousers" class="drop-down-a"><li class="drop-down-li">Jeans</li></a>
+            <a href="../products/tshirt" class="drop-down-a"><li class="drop-down-li">Remeras</li></a>
             <a href="" class="drop-down-a"><li class="drop-down-li">Camisas</li></a>
             <a href="" class="drop-down-a"><li class="drop-down-li">Shorts</li></a>
-            <a href="" class="drop-down-a"><li class="drop-down-li">Sweaters</li></a>
+            <a href="../products/sweater" class="drop-down-a"><li class="drop-down-li">Sweaters</li></a>
             <a href="" class="drop-down-a"><li class="drop-down-li">Polleras</li></a>
         </ul>
     </div>
